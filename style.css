@@ -1,6 +1,6 @@
 /* CSS RESET E ESTILOS GERAIS */
 * {
-    margin: 3;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,4 +44,5 @@ nav {
     font-weight: bold;
     background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
     -webkit-background-clip: text;
-    -webkit-}
+    -webkit-text-fill-color: transparent;
+}
