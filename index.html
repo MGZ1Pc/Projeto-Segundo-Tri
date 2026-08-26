@@ -9,50 +9,59 @@
         /* ==========================================================================
            1. RESET & VARIÁVEIS DE TEMA
            ========================================================================== */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Tema Dark (Padrão) */
         :root {
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
-            --bg-card: #1e293b;
             --bg-header: rgba(15, 23, 42, 0.85);
+            
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
+            
             --accent-blue: #38bdf8;
             --accent-purple: #c084fc;
             --accent-green: #10b981;
             --accent-red: #ef4444;
             --border-color: #334155;
+            
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            
             --transition-fast: 0.2s ease;
             --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Tema Light */
         [data-theme="light"] {
             --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
-            --bg-card: #ffffff;
             --bg-header: rgba(248, 250, 252, 0.85);
+            
             --text-primary: #0f172a;
             --text-secondary: #475569;
+            
             --accent-blue: #0284c7;
             --accent-purple: #9333ea;
             --accent-green: #059669;
             --accent-red: #dc2626;
             --border-color: #e2e8f0;
+            
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
         /* ==========================================================================
-           2. ESTILOS BASE E ESTRUTURA
+           2. ESTILOS BASE
            ========================================================================== */
         body {
             background-color: var(--bg-primary);
@@ -64,7 +73,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 2rem auto;
             padding: 0 1.5rem;
         }
@@ -93,12 +102,12 @@
         }
 
         nav {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
+            padding: 1rem 2rem;
         }
 
         .logo {
@@ -111,6 +120,9 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* ==========================================================================
+           4. COMPONENTES E BOTÕES
+           ========================================================================== */
         .theme-toggle {
             display: inline-flex;
             align-items: center;
@@ -134,8 +146,12 @@
             border-color: var(--accent-blue);
         }
 
+        .theme-toggle:active {
+            transform: translateY(0);
+        }
+
         /* ==========================================================================
-           4. MÍDIAS E TIPOGRAFIA
+           5. MÍDIAS E TIPOGRAFIA
            ========================================================================== */
         img, video {
             max-width: 100%;
@@ -151,21 +167,20 @@
             color: var(--text-primary);
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             margin-bottom: 0.75rem;
         }
 
         h1 {
             font-size: 2.25rem;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
             -webkit-background-clip: text;
             background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         h2 {
             font-size: 1.5rem;
-            color: var(--accent-purple);
+            color: var(--accent-blue);
         }
 
         p, ul {
@@ -176,7 +191,7 @@
         ul { margin-left: 1.5rem; }
 
         /* ==========================================================================
-           5. SIMULADORES INTERATIVOS
+           6. INTERATIVIDADE E QUIZ
            ========================================================================== */
         .interactive-box {
             background-color: var(--bg-primary);
@@ -250,9 +265,6 @@
         .vision-blurry { filter: blur(5px); }
         .vision-clear { filter: blur(0px); }
 
-        /* ==========================================================================
-           6. SEÇÃO EXCLUSIVA DO QUIZ
-           ========================================================================== */
         .quiz-wrapper {
             background: var(--bg-secondary);
             border: 2px solid var(--accent-purple);
@@ -351,28 +363,32 @@
 
     <main class="container">
         
+        <!-- EXPLICAÇÃO DETALHADA 1 -->
         <section class="content-section">
             <h1>Como a física projeta tudo o que você vê</h1>
-            <p>A óptica geométrica explica desde a imagem refletida no espelho até as câmeras do celular. Tudo o que enxergamos é o resultado da luz refletindo ou refratando pelos objetos.</p>
+            <p>A óptica geométrica é o ramo da física que estuda o comportamento da luz e como ela interage com diferentes superfícies. Tudo o que enxergamos é o resultado da luz sendo refletida ou refratada até atingir nossos olhos, desde a imagem refletida no espelho até as lentes das câmeras de celular.</p>
             
             <img src="reflexaoemespelhoconcavo-0-cke.png" alt="Reflexão em espelho côncavo">
 
-            <h2>1. Formação de Imagens</h2>
+            <h2>1. Formação e Tipos de Imagens</h2>
+            <p>Quando a luz atinge uma superfície reflexiva ou refrativa, o comportamento dos raios luminosos determina a natureza da imagem gerada:</p>
             <ul>
-                <li><strong>Imagem Real:</strong> Formada pelo cruzamento direto dos raios de luz. Pode ser projetada em uma tela e aparece de cabeça para baixo.</li>
-                <li><strong>Imagem Virtual:</strong> Formada pelos prolongamentos dos raios. Não pode ser projetada e fica sempre de pé.</li>
+                <li><strong>Imagem Real:</strong> É formada pelo cruzamento efetivo dos raios de luz refletidos ou refratados. Este tipo de imagem pode ser projetado em um anteparo (como uma tela de cinema) e apresenta-se sempre invertida (de cabeça para baixo) em relação ao objeto.</li>
+                <li><strong>Imagem Virtual:</strong> É formada pelo prolongamento dos raios de luz. Não pode ser projetada em uma tela física e apresenta-se sempre direita (de pé) em relação ao objeto. É o tipo de imagem que você vê ao se olhar em um espelho plano comum.</li>
             </ul>
         </section>
 
+        <!-- EXPLICAÇÃO DETALHADA 2 -->
         <section class="content-section">
-            <h2>2. Espelhos e Reflexão</h2>
-            <p><strong>Espelhos Planos:</strong> Formam imagens virtuais e do mesmo tamanho.</p>
-            <p><strong>Espelhos Esféricos:</strong></p>
+            <h2>2. Espelhos Planos e Esféricos</h2>
+            <p><strong>Espelhos Planos:</strong> Apresentam uma superfície totalmente plana. A imagem gerada é sempre virtual, direita, do mesmo tamanho do objeto e posicionada à mesma distância aparente atrás do espelho.</p>
+            <p><strong>Espelhos Esféricos:</strong> Possuem superfícies curvas derivadas de uma esfera. Dividem-se em dois tipos principais:</p>
             <ul>
-                <li><strong>Côncavo:</strong> Amplia objetos próximos ou inverte objetos distantes.</li>
-                <li><strong>Convexo:</strong> Gera imagens reduzidas e aumenta o campo de visão.</li>
+                <li><strong>Espelho Côncavo:</strong> A superfície refletora é a parte interna da curva. Ele pode ampliar imagens de objetos próximos (como espelhos de maquiagem) ou inverter imagens de objetos distantes.</li>
+                <li><strong>Espelho Convexo:</strong> A superfície refletora é a parte externa da curva. Ele gera sempre imagens virtuais, diretas e reduzidas, oferecendo um campo de visão mais amplo (usado em garagens e ônibus).</li>
             </ul>
 
+            <!-- Experimento Interativo -->
             <div class="interactive-box">
                 <h3>🔍 Experimento: Espelhos Esféricos</h3>
                 <div class="interactive-controls">
@@ -390,14 +406,17 @@
             </div>
         </section>
 
+        <!-- EXPLICAÇÃO DETALHADA 3 -->
         <section class="content-section">
-            <h2>3. A Óptica do Olho Humano</h2>
-            <p>A luz foca na retina formando uma imagem <strong>real e invertida</strong>, transmitida ao cérebro pelo nervo óptico.</p>
+            <h2>3. A Óptica do Olho Humano e Correções Visuais</h2>
+            <p>O olho humano funciona de forma análoga a uma câmara escura. A luz atravessa a córnea e o cristalino (que atuam como lentes convergentes) e projeta uma imagem <strong>real e invertida</strong> sobre a retina. O cérebro faz a interpretação dessa imagem e a vira de pé.</p>
+            <p>Quando ocorrem imperfeições no formato do olho, surgem as ametropias (problemas de visão):</p>
             <ul>
-                <li><strong>Miopia:</strong> Dificuldade para enxergar de longe. Corrigida com <strong>lentes divergentes</strong>.</li>
-                <li><strong>Hipermetropia:</strong> Dificuldade para enxergar de perto. Corrigida com <strong>lentes convergentes</strong>.</li>
+                <li><strong>Miopia:</strong> O olho é mais longo do que o normal, fazendo com que a imagem se forme antes da retina. Dificulta a visão de objetos distantes. É corrigida com <strong>lentes divergentes</strong>.</li>
+                <li><strong>Hipermetropia:</strong> O olho é mais curto do que o normal, fazendo com que a imagem se forme atrás da retina. Dificulta a visão de objetos próximos. É corrigida com <strong>lentes convergentes</strong>.</li>
             </ul>
 
+            <!-- Simulador Visual -->
             <div class="interactive-box">
                 <h3>👓 Simulador de Miopia</h3>
                 <div class="interactive-controls">
@@ -412,7 +431,7 @@
             </div>
         </section>
 
-        <!-- SEÇÃO DO QUIZ SEPARADA -->
+        <!-- SEÇÃO DO QUIZ -->
         <section class="quiz-wrapper">
             <h2>🧠 Central de Quizzes</h2>
             <p style="margin-bottom: 1.5rem;">Responda às perguntas com base no conteúdo lido acima:</p>
@@ -443,7 +462,7 @@
     </main>
 
     <script>
-        // Tema Dark/Light
+        // Lógica do Tema Dark/Light
         const themeBtn = document.getElementById('theme-btn');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -457,7 +476,7 @@
             themeText.textContent = newTheme === 'light' ? 'Claro' : 'Escuro';
         });
 
-        // Simulador de Espelhos
+        // Lógica dos Simuladores
         function setMirror(type, btn) {
             const obj = document.getElementById('sim-object');
             const desc = document.getElementById('sim-desc');
@@ -480,7 +499,6 @@
             }
         }
 
-        // Simulador de Visão
         function setVision(corrected, btn) {
             const target = document.getElementById('eye-target');
             btn.parentElement.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
@@ -488,7 +506,7 @@
             target.className = corrected ? 'eye-vision vision-clear' : 'eye-vision vision-blurry';
         }
 
-        // Quiz
+        // Lógica do Quiz
         let totalCorrect = 0;
         function checkAnswer(btn, optionIndex) {
             const card = btn.closest('.quiz-card');
