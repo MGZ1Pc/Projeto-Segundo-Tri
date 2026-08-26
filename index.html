@@ -11,12 +11,16 @@
     <header>
         <nav>
             <div class="logo">Física & Óptica</div>
+            <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Escuro</span>
+            </button>
         </nav>
     </header>
 
     <main class="container">
         <h1>Como a física projeta tudo o que você vê</h1>
-        <p>Você já parou para pensar que tudo o que a gente enxerga é, na verdade, resultado de raios de luz rebatendo pelas coisas e entrando nos nossos olhos? A óptica geométrica é a área da física que explica desde o motivo de uma colher parecer "quebrada" dentro de um copo d'água até a tecnologia por trás das câmeras do seu celular e do cinema. Entender esses conceitos ajuda a perceber como a tecnologia e a natureza trabalham juntas o tempo todo.</p>
+        <p>Você já parou para pensar que tudo o que a gente enxerga é, na verdade, resultado de raios de luz rebatendo pelas coisas e entrando nos nossos olhos? A óptica geométrica é a área da Física que explica desde o motivo de uma colher parecer "quebrada" dentro de um copo d'água até a tecnologia por trás das câmeras do seu celular e do cinema. Entender esses conceitos ajuda a perceber como a tecnologia e a natureza trabalham juntas o tempo todo.</p>
         
         <!-- ESPAÇO PARA IMAGEM 1: Introdução à Formação de Imagem -->
         <img src="reflexaoemespelhoconcavo-0-cke.png" alt="Reflexão em espelho côncavo">
@@ -27,15 +31,19 @@
             
             <p>Na óptica, dividimos o resultado desse fenômeno em dois tipos principais:</p>
             <ul>
-                <li><strong>Imagem Real:</strong> É aquela formada pelo cruzamento efetivo dos próprios raios de luz depois de passarem por uma lente ou refletirem em um espelho. O grande diferencial da imagem real é que ela **pode ser projetada em uma superfície física**, como a tela de um cinema ou a parede usando um projetor de slides. Além disso, toda imagem real fica de ponta-cabeça (invertida) em relação ao objeto original.</li>
-                <li><strong>Imagem Virtual:</strong> Ocorre quando os raios de luz se espalham e o nosso cérebro precisa cruzar os *prolongamentos* desses raios para entender de onde eles vieram. A imagem virtual se forma "atrás" do espelho ou dentro da lente. Ela **não pode ser projetada** em nenhuma tela e sempre aparece "de pé" (direita) para quem está olhando, como quando você se olha no espelho do banheiro de manhã.</li>
+                <li><strong>Imagem Real:</strong> É aquela formada pelo cruzamento efetivo dos próprios raios de luz depois de passarem por uma lente ou refletirem em um espelho. O grande diferencial da imagem real é que ela <strong>pode ser projetada em uma superfície física</strong>, como a tela de um cinema ou a parede usando um projetor de slides. Além disso, toda imagem real fica de ponta-cabeça (invertida) em relação ao objeto original.</li>
+                <li><strong>Imagem Virtual:</strong> Ocorre quando os raios de luz se espalham e o nosso cérebro precisa cruzar os <em>prolongamentos</em> desses raios para entender de onde eles vieram. A imagem virtual se forma "atrás" do espelho ou dentro da lente. Ela <strong>não pode ser projetada</strong> em nenhuma tela e sempre aparece "de pé" (direita) para quem está olhando, como quando você se olha no espelho do banheiro de manhã.</li>
             </ul>
 
             <!-- ESPAÇO PARA VÍDEO 1: Animação mostrando a diferença de Imagem Real vs Virtual -->
-            <!-- <video controls poster="capa-formacao-imagem.jpg">
-                <source src="video-formacao-imagem.mp4" type="video/mp4">
-                Seu navegador não suporta este vídeo.
-            </video> -->
+            <!-- <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="capa-formacao-imagem.jpg">
+                        <source src="video-formacao-imagem.mp4" type="video/mp4">
+                        Seu navegador não suporta este vídeo.
+                    </video>
+                </div>
+            </div> -->
         </section>
 
         <section>
@@ -56,13 +64,13 @@
 
         <section>
             <h2>3. Física das Cores</h2>
-            <p>Geralmente achamos que a luz do Sol ou de uma lâmpada comum é simplesmente "amarela" ou "sem cor", mas na verdade ela é uma **luz policromática** (luz branca). Isso significa que ela é a soma de todas as cores do espectro visível — as mesmas cores que vemos quando a luz atravessa gotas de chuva e forma o arco-íris.</p>
+            <p>Geralmente achamos que a luz do Sol ou de uma lâmpada comum é simplesmente "amarela" ou "sem cor", mas na verdade ela é uma <strong>luz policromática</strong> (luz branca). Isso significa que ela é a soma de todas as cores do espectro visível — as mesmas cores que vemos quando a luz atravessa gotas de chuva e forma o arco-íris.</p>
             
             <p>Mas por que cada objeto tem uma cor diferente? Tudo depende de qual frequência de luz o material prefere absorver e qual ele prefere refletir:</p>
             <ul>
-                <li>Quando você olha para uma **maçã vermelha**, significa que a pele da maçã absorveu o azul, o verde, o amarelo e todas as outras frequências da luz branca, e refletiu apenas a luz vermelha até os seus olhos.</li>
-                <li>Se um objeto parece **branco**, significa que ele refletiu todas as cores da luz branca sem absorver nenhuma.</li>
-                <li>Se um objeto parece **preto**, é porque ele absorveu praticamente toda a luz que bateu nele e não refletiu quase nada. É por isso que usar roupas pretas num dia de sol forte dá muito mais calor!</li>
+                <li>Quando você olha para uma <strong>maçã vermelha</strong>, significa que a pele da maçã absorveu o azul, o verde, o amarelo e todas as outras frequências da luz branca, e refletiu apenas a luz vermelha até os seus olhos.</li>
+                <li>Se um objeto parece <strong>branco</strong>, significa que ele refletiu todas as cores da luz branca sem absorver nenhuma.</li>
+                <li>Se um objeto parece <strong>preto</strong>, é porque ele absorveu praticamente toda a luz que bateu nele e não refletiu quase nada. É por isso que usar roupas pretas num dia de sol forte dá muito mais calor!</li>
             </ul>
 
             <!-- ESPAÇO PARA IMAGEM 3: Espectro visível e decomposição da luz -->
@@ -76,28 +84,40 @@
             <ul>
                 <li><strong>Córnea e Cristalino:</strong> A córnea é a camada transparente externa e o cristalino funciona como uma lente flexível. Juntos, eles refratam a luz para focar o raio exatamente no fundo do olho. O cristalino consegue mudar de formato para ajustar o foco quando olhamos algo muito perto ou muito longe.</li>
                 <li><strong>Pupila:</strong> É a abertura central (a "bolinha preta" do olho) que funciona como o diafragma de uma câmera. Ela diminui no sol forte para não queimar as células internas e dilata no escuro para captar o máximo de luz possível.</li>
-                <li><strong>Retina:</strong> É a parede no fundo do olho reforçada com células fotossensíveis (cones e bastonetes). A imagem se projeta na retina de forma **real e invertida**. Em seguida, o **nervo óptico** transforma essa luz em sinais elétricos e os envia para o cérebro, que desinverte a imagem para que possamos entender o mundo na orientação correta.</li>
+                <li><strong>Retina:</strong> É a parede no fundo do olho reforçada com células fotossensíveis (cones e bastonetes). A imagem se projeta na retina de forma <strong>real e invertida</strong>. Em seguida, o <strong>nervo óptico</strong> transforma essa luz em sinais elétricos e os envia para o cérebro, que desinverte a imagem para que possamos entender o mundo na orientação correta.</li>
             </ul>
 
             <p><strong>Ametropias: Quando a visão precisa de ajuda</strong></p>
             <p>Nem todo mundo tem o olho com o formato perfeito, e é aí que entram os problemas de visão que corrigimos com óculos ou lentes de contato:</p>
             <ul>
-                <li><strong>Miopia:</strong> O globo ocular é ligeiramente mais longo do que o normal. Por causa disso, a imagem se forma *antes* da retina, fazendo com que objetos distantes fiquem borrados. É corrigida com **lentes divergentes**.</li>
-                <li><strong>Hipermetropia:</strong> O olho é mais curto do que o normal, fazendo com que a imagem se forme *depois* da retina. Isso dificulta o foco em objetos próximos (como ler um livro). É corrigida com **lentes convergentes**.</li>
+                <li><strong>Miopia:</strong> O globo ocular é ligeiramente mais longo do que o normal. Por causa disso, a imagem se forma <em>antes</em> da retina, fazendo com que objetos distantes fiquem borrados. É corrigida com <strong>lentes divergentes</strong>.</li>
+                <li><strong>Hipermetropia:</strong> O olho é mais curto do que o normal, fazendo com que a imagem se forme <em>depois</em> da retina. Isso dificulta o foco em objetos próximos (como ler um livro). É corrigida com <strong>lentes convergentes</strong>.</li>
             </ul>
 
             <!-- ESPAÇO PARA VÍDEO 2: Demonstração da refração da luz no Olho Humano e uso de lentes -->
-            <video controls poster="sua-capa.jpg">
-                <source src="meu-video.mp4" type="video/mp4">
-                Seu navegador não suporta este vídeo.
-            </video>
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="sua-capa.jpg">
+                        <source src="meu-video.mp4" type="video/mp4">
+                        Seu navegador não suporta este vídeo.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Fibra Óptica e Transmissão de Dados</h2>
+            <p>A fibra óptica é um filamento extremamente fino feito de vidro ou plástico de alta pureza que revolucionou o mundo moderno. É através dela que a internet de alta velocidade e os dados das redes de comunicação chegam até nós, utilizando feixes de luz para carregar informações quase à velocidade da luz.</p>
+            
+            <p>O funcionamento da fibra óptica baseia-se num princípio da física chamado <strong>Reflexão Total da Luz</strong>:</p>
+            <ul>
+                <li><strong>Reflexão Total:</strong> Ocorre quando um feixe de luz tenta passar de um meio mais denso (com maior índice de refração) para um meio menos denso, mas em um ângulo tão inclinado (maior que o ângulo limite) que a luz não consegue escapar. Em vez de refratar, ela bate na parede interna do cabo e reflete 100% de volta para dentro.</li>
+                <li><strong>Estrutura da Fibra:</strong> A fibra é composta por um <em>núcleo</em> (onde a luz caminha) envolto por uma <em>casca</em> que possui um índice de refração menor. Isso garante que o raio de luz vá rebatendo continuamente nas paredes internas por quilômetros sem perder sinal ou vazar para fora.</li>
+            </ul>
+
+            <!-- ESPAÇO PARA IMAGEM OU VÍDEO 4: Reflexão total na fibra óptica -->
+            <!-- <img src="fibra-optica-esquema.png" alt="Desenho explicativo da luz se propagando na fibra óptica por reflexão total"> -->
         </section>
     </main>
-<nav>
-    <div class="logo">SuaMarca</div>
-    <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema">
-        <span id="theme-icon">🌙</span>
-        <span id="theme-text">Escuro</span>
-    </button>
 </body>
 </html>
