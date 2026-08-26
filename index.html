@@ -93,6 +93,43 @@
             </video>
         </section>
     </main>
+<nav>
+    <div class="logo">SuaMarca</div>
+    <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-text">Escuro</span>
+    </button>
+</nav>
+const themeBtn = document.getElementById('theme-btn');
+const themeIcon = document.getElementById('theme-icon');
+const themeText = document.getElementById('theme-text');
 
+// Verifica preferência salva ou do sistema
+const savedTheme = localStorage.getItem('theme');
+const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    updateButton('light');
+}
+
+themeBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateButton(newTheme);
+});
+
+function updateButton(theme) {
+    if (theme === 'light') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Claro';
+    } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Escuro';
+    }
+}
 </body>
 </html>
