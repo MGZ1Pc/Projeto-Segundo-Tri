@@ -5,6 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Integrador IFA - Física e Óptica</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ESTILOS EXTRAS PARA O QUIZ INTERATIVO */
+        .quiz-section {
+            background-color: var(--bg-secondary, #1e293b);
+            border: 1px solid var(--border-color, #334155);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-card {
+            background-color: var(--bg-primary, #0f172a);
+            border: 1px solid var(--border-color, #334155);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary, #f8fafc);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .quiz-btn {
+            background-color: var(--bg-secondary, #1e293b);
+            color: var(--text-primary, #f8fafc);
+            border: 1px solid var(--border-color, #334155);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-btn:hover:not([disabled]) {
+            border-color: var(--accent-blue, #38bdf8);
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        .quiz-btn.correct {
+            background-color: #10b981 !important;
+            color: #ffffff !important;
+            border-color: #059669 !important;
+        }
+
+        .quiz-btn.wrong {
+            background-color: #ef4444 !important;
+            color: #ffffff !important;
+            border-color: #dc2626 !important;
+        }
+
+        .feedback-msg {
+            margin-top: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .feedback-msg.show {
+            display: block;
+        }
+
+        .score-board {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 8px;
+            color: var(--accent-blue, #38bdf8);
+        }
+    </style>
 </head>
 <body>
 
@@ -87,6 +170,8 @@
                 <li><strong>Retina:</strong> É a parede no fundo do olho reforçada com células fotossensíveis (cones e bastonetes). A imagem se projeta na retina de forma <strong>real e invertida</strong>. Em seguida, o <strong>nervo óptico</strong> transforma essa luz em sinais elétricos e os envia para o cérebro, que desinverte a imagem para que possamos entender o mundo na orientação correta.</li>
             </ul>
 
+<Image src="image_agent_tag_9524323956972196511" alt="Diagrama anatômico das estruturas do olho humano" caption="Anatomia do olho humano" />
+
             <p><strong>Ametropias: Quando a visão precisa de ajuda</strong></p>
             <p>Nem todo mundo tem o olho com o formato perfeito, e é aí que entram os problemas de visão que corrigimos com óculos ou lentes de contato:</p>
             <ul>
@@ -108,16 +193,83 @@
         <section>
             <h2>5. Fibra Óptica e Transmissão de Dados</h2>
             <p>A fibra óptica é um filamento extremamente fino feito de vidro ou plástico de alta pureza que revolucionou o mundo moderno. É através dela que a internet de alta velocidade e os dados das redes de comunicação chegam até nós, utilizando feixes de luz para carregar informações quase à velocidade da luz.</p>
-            
+
+<Image src="image_agent_tag_9524323956972197184" alt="Esquema da luz viajando dentro de um cabo de fibra óptica por reflexão total" caption="Reflexão total na fibra óptica" />
+
             <p>O funcionamento da fibra óptica baseia-se num princípio da física chamado <strong>Reflexão Total da Luz</strong>:</p>
             <ul>
                 <li><strong>Reflexão Total:</strong> Ocorre quando um feixe de luz tenta passar de um meio mais denso (com maior índice de refração) para um meio menos denso, mas em um ângulo tão inclinado (maior que o ângulo limite) que a luz não consegue escapar. Em vez de refratar, ela bate na parede interna do cabo e reflete 100% de volta para dentro.</li>
                 <li><strong>Estrutura da Fibra:</strong> A fibra é composta por um <em>núcleo</em> (onde a luz caminha) envolto por uma <em>casca</em> que possui um índice de refração menor. Isso garante que o raio de luz vá rebatendo continuamente nas paredes internas por quilômetros sem perder sinal ou vazar para fora.</li>
             </ul>
+        </section>
 
-            <!-- ESPAÇO PARA IMAGEM OU VÍDEO 4: Reflexão total na fibra óptica -->
-            <!-- <img src="fibra-optica-esquema.png" alt="Desenho explicativo da luz se propagando na fibra óptica por reflexão total"> -->
+        <!-- SEÇÃO DE QUIZ INTERATIVO -->
+        <section class="quiz-section">
+            <h2>🧠 Teste Seus Conhecimentos!</h2>
+            <p>Responda às questões abaixo para conferir o que você aprendeu sobre óptica:</p>
+
+            <div class="quiz-card" data-correct="1">
+                <p class="quiz-question">1. Por que uma maçã sob a luz do sol se apresenta vermelha aos nossos olhos?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela emite sua própria luz vermelha de forma contínua.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela absorve as outras frequências da luz branca e reflete apenas a cor vermelha.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela refrata a luz azul criando uma imagem virtual vermelha.</button>
+                </div>
+                <div class="feedback-msg"></div>
+            </div>
+
+            <div class="quiz-card" data-correct="2">
+                <p class="quiz-question">2. Qual é a principal característica de uma imagem REAL na óptica?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela é sempre direita (de pé) e não pode ser projetada.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela só se forma no interior de espelhos planos.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela é formada pelos próprios raios de luz e pode ser projetada em uma tela.</button>
+                </div>
+                <div class="feedback-msg"></div>
+            </div>
+
+            <div class="quiz-card" data-correct="0">
+                <p class="quiz-question">3. Qual é o fenômeno físico fundamental que permite à fibra óptica guiar a luz por longas distâncias?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Reflexão Total da Luz.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Difração em espelhos esféricos.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Polarização no interior da córnea.</button>
+                </div>
+                <div class="feedback-msg"></div>
+            </div>
+
+            <div class="score-board" id="score-board">Pontuação: 0 de 3 respondidas acertadamente</div>
         </section>
     </main>
+
+    <script>
+        // LÓGICA DO QUIZ
+        let totalCorrect = 0;
+
+        function checkAnswer(btn, optionIndex) {
+            const card = btn.closest('.quiz-card');
+            const correctIndex = parseInt(card.getAttribute('data-correct'));
+            const options = card.querySelectorAll('.quiz-btn');
+            const feedback = card.querySelector('.feedback-msg');
+
+            // Desabilita todos os botões da mesma questão após a escolha
+            options.forEach(button => button.disabled = true);
+
+            if (optionIndex === correctIndex) {
+                btn.classList.add('correct');
+                feedback.textContent = "✨ Correto! Excelente reflexão!";
+                feedback.style.color = "#10b981";
+                totalCorrect++;
+            } else {
+                btn.classList.add('wrong');
+                options[correctIndex].classList.add('correct');
+                feedback.textContent = "❌ Incorreto! A alternativa destacada em verde é a correta.";
+                feedback.style.color = "#ef4444";
+            }
+
+            feedback.classList.add('show');
+            document.getElementById('score-board').textContent = `Pontuação: ${totalCorrect} de 3 acertadas!`;
+        }
+    </script>
 </body>
 </html>
