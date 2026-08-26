@@ -7,7 +7,7 @@
     
     <style>
         /* ==========================================================================
-           1. RESET E VARIÁVEIS DE TEMA MODERNO
+           1. RESET & VARIÁVEIS DE TEMA
            ========================================================================== */
         *, *::before, *::after {
             margin: 0;
@@ -16,41 +16,51 @@
         }
 
         :root {
-            --bg-primary: #0b0f19;
-            --bg-secondary: #151c2c;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
             --bg-card: #1e293b;
-            --bg-header: rgba(11, 15, 25, 0.85);
+            --bg-header: rgba(15, 23, 42, 0.85);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent-blue: #38bdf8;
-            --accent-purple: #a855f7;
+            --accent-purple: #c084fc;
             --accent-green: #10b981;
             --accent-red: #ef4444;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.15);
+            --border-color: #334155;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         [data-theme="light"] {
-            --bg-primary: #f1f5f9;
+            --bg-primary: #f8fafc;
             --bg-secondary: #ffffff;
-            --bg-card: #f8fafc;
-            --bg-header: rgba(241, 245, 249, 0.85);
+            --bg-card: #ffffff;
+            --bg-header: rgba(248, 250, 252, 0.85);
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --accent-blue: #0284c7;
             --accent-purple: #9333ea;
             --accent-green: #059669;
             --accent-red: #dc2626;
-            --border-color: rgba(0, 0, 0, 0.08);
-            --shadow-glow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
 
+        /* ==========================================================================
+           2. ESTILOS BASE E ESTRUTURA
+           ========================================================================== */
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            transition: all 0.3s ease;
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -59,16 +69,27 @@
             padding: 0 1.5rem;
         }
 
+        .content-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
         /* ==========================================================================
-           2. CABEÇALHO ESTILIZADO
+           3. CABEÇALHO E NAVEGAÇÃO
            ========================================================================== */
         header {
             position: sticky;
             top: 0;
             background-color: var(--bg-header);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
+            transition: background-color var(--transition-normal), border-color var(--transition-normal);
         }
 
         nav {
@@ -81,125 +102,84 @@
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
+            letter-spacing: -0.025em;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
         }
 
         .theme-toggle {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            padding: 0.5rem 1.25rem;
-            border-radius: 99px;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
             border: 1px solid var(--border-color);
             background-color: var(--bg-secondary);
             color: var(--text-primary);
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-fast);
         }
 
         .theme-toggle:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
             border-color: var(--accent-blue);
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-            transform: translateY(-2px);
         }
 
         /* ==========================================================================
-           3. ESTILIZAÇÃO DO CONTEÚDO EXPLICATIVO
+           4. MÍDIAS E TIPOGRAFIA
            ========================================================================== */
-        .content-section {
-            background: var(--bg-secondary);
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-glow);
+        }
+
+        h1, h2, h3 {
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            font-size: 2.25rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            line-height: 1.2;
         }
 
         h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--accent-purple);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        p {
+        p, ul {
             color: var(--text-secondary);
             margin-bottom: 1rem;
-            font-size: 1.05rem;
         }
 
-        ul {
-            margin-left: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        li strong {
-            color: var(--accent-blue);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 14px;
-            margin: 1.5rem 0;
-            border: 1px solid var(--border-color);
-        }
-
-        .video-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            overflow: hidden;
-            margin: 1.5rem 0;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            background-color: #000;
-        }
-
-        .video-wrapper video, .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        ul { margin-left: 1.5rem; }
 
         /* ==========================================================================
-           4. SIMULADORES E ELEMENTOS INTERATIVOS
+           5. SIMULADORES INTERATIVOS
            ========================================================================== */
         .interactive-box {
-            background-color: var(--bg-card);
+            background-color: var(--bg-primary);
             border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 1.5rem;
@@ -214,7 +194,7 @@
         }
 
         .btn-action {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-secondary);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
             padding: 0.6rem 1rem;
@@ -222,7 +202,7 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.2s ease;
+            transition: all var(--transition-fast);
         }
 
         .btn-action:hover {
@@ -234,12 +214,11 @@
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             color: #ffffff;
             border-color: transparent;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
         }
 
         .sim-stage {
             height: 180px;
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -250,7 +229,7 @@
 
         .object-demo {
             font-size: 3.5rem;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.4s ease;
         }
 
         .mirror-plane { transform: scaleX(-1); }
@@ -259,11 +238,11 @@
         .mirror-convex { transform: scale(0.65); }
 
         .eye-vision {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             padding: 1rem 2rem;
             text-align: center;
             border-radius: 10px;
-            background: var(--bg-secondary);
+            background: var(--bg-primary);
             border: 1px solid var(--border-color);
             transition: filter 0.4s ease;
         }
@@ -272,45 +251,16 @@
         .vision-clear { filter: blur(0px); }
 
         /* ==========================================================================
-           5. SEÇÃO DEDICADA EXCLUSIVA PARA QUIZZES
+           6. SEÇÃO EXCLUSIVA DO QUIZ
            ========================================================================== */
         .quiz-wrapper {
-            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            background: var(--bg-secondary);
             border: 2px solid var(--accent-purple);
             border-radius: 24px;
-            padding: 2.5rem 2rem;
-            margin-top: 4rem;
+            padding: 2rem;
+            margin-top: 3rem;
             margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15);
-        }
-
-        .quiz-header-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .quiz-header-title h2 {
-            font-size: 2rem;
-            justify-content: center;
-            color: var(--text-primary);
-        }
-
-        /* Barra de Progresso */
-        .progress-container {
-            width: 100%;
-            height: 10px;
-            background-color: var(--bg-primary);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            transition: width 0.4s ease;
+            box-shadow: var(--shadow-lg);
         }
 
         .quiz-card {
@@ -319,13 +269,12 @@
             border-radius: 16px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            transition: transform 0.2s ease;
         }
 
         .quiz-question {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             color: var(--text-primary);
         }
 
@@ -343,52 +292,47 @@
             border-radius: 12px;
             text-align: left;
             font-size: 0.95rem;
-            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-fast);
         }
 
         .quiz-btn:hover:not([disabled]) {
             border-color: var(--accent-blue);
-            transform: translateX(5px);
-            background-color: rgba(56, 189, 248, 0.08);
+            transform: translateX(4px);
         }
 
         .quiz-btn.correct {
-            background: var(--accent-green) !important;
+            background-color: var(--accent-green) !important;
             color: #ffffff !important;
             border-color: var(--accent-green) !important;
-            font-weight: 700;
         }
 
         .quiz-btn.wrong {
-            background: var(--accent-red) !important;
+            background-color: var(--accent-red) !important;
             color: #ffffff !important;
             border-color: var(--accent-red) !important;
         }
 
         .feedback-msg {
             margin-top: 1rem;
-            padding: 0.75rem 1rem;
+            padding: 0.75rem;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
             display: none;
         }
 
-        .feedback-msg.show {
-            display: block;
-        }
+        .feedback-msg.show { display: block; }
 
         .score-board {
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
-            margin-top: 2rem;
-            padding: 1.2rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
             background: var(--bg-primary);
             border: 1px solid var(--border-color);
-            border-radius: 14px;
+            border-radius: 12px;
             color: var(--accent-blue);
         }
     </style>
@@ -407,48 +351,30 @@
 
     <main class="container">
         
-        <!-- SEÇÃO 1: EXPLICAÇÃO INICIAL -->
         <section class="content-section">
             <h1>Como a física projeta tudo o que você vê</h1>
-            <p>Você já parou para pensar que tudo o que a gente enxerga é, na verdade, resultado de raios de luz rebatendo pelas coisas e entrando nos nossos olhos? A óptica geométrica é a área da Física que explica desde o motivo de uma colher parecer "quebrada" dentro de um copo d'água até a tecnologia por trás das câmeras do seu celular e do cinema.</p>
+            <p>A óptica geométrica explica desde a imagem refletida no espelho até as câmeras do celular. Tudo o que enxergamos é o resultado da luz refletindo ou refratando pelos objetos.</p>
             
             <img src="reflexaoemespelhoconcavo-0-cke.png" alt="Reflexão em espelho côncavo">
 
-            <h2>1. Formação e Uso de Imagens</h2>
-            <p>Para que uma imagem consiga se formar na física, a luz precisa sair de uma fonte (ou refletir de um objeto), passar por algum meio — como o ar, uma lente ou um espelho — e sofrer reflexão ou refração.</p>
-            
+            <h2>1. Formação de Imagens</h2>
             <ul>
-                <li><strong>Imagem Real:</strong> É aquela formada pelo cruzamento efetivo dos próprios raios de luz. Ela <strong>pode ser projetada em uma superfície física</strong> (como no cinema) e fica sempre invertida (de ponta-cabeça).</li>
-                <li><strong>Imagem Virtual:</strong> Ocorre quando cruzamos os <em>prolongamentos</em> dos raios de luz. Ela <strong>não pode ser projetada</strong> e sempre aparece "de pé" (direita), como o reflexo no espelho do banheiro.</li>
+                <li><strong>Imagem Real:</strong> Formada pelo cruzamento direto dos raios de luz. Pode ser projetada em uma tela e aparece de cabeça para baixo.</li>
+                <li><strong>Imagem Virtual:</strong> Formada pelos prolongamentos dos raios. Não pode ser projetada e fica sempre de pé.</li>
             </ul>
-
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <video controls poster="capa-formacao-imagem.jpg">
-                        <source src="video-formacao-imagem.mp4" type="video/mp4">
-                        Seu navegador não suporta este vídeo.
-                    </video>
-                </div>
-            </div>
         </section>
 
-        <!-- SEÇÃO 2: ESPELHOS E SIMULADOR -->
         <section class="content-section">
             <h2>2. Espelhos e Reflexão</h2>
-            <p>A reflexão é o fenômeno em que a luz atinge uma superfície e volta para o meio de origem. Dependendo do formato do espelho, o comportamento visual muda inteiramente:</p>
-            
-            <p><strong>Espelhos Planos:</strong> Formam imagens virtuais, do mesmo tamanho do objeto e com inversão lateral (direita vira esquerda).</p>
-            
-            <p><strong>Espelhos Esféricos:</strong> Podem ser curvados para dentro ou para fora:</p>
+            <p><strong>Espelhos Planos:</strong> Formam imagens virtuais e do mesmo tamanho.</p>
+            <p><strong>Espelhos Esféricos:</strong></p>
             <ul>
-                <li><strong>Côncavo (curvado para dentro):</strong> Cria imagens ampliadas de perto (ótimo para espelhos de maquiagem) ou imagens invertidas quando o objeto está longe.</li>
-                <li><strong>Convexo (curvado para fora):</strong> Sempre gera imagens virtuais e menores, mas amplia o campo de visão (usado nos retrovisores de carros e em corredores de lojas).</li>
+                <li><strong>Côncavo:</strong> Amplia objetos próximos ou inverte objetos distantes.</li>
+                <li><strong>Convexo:</strong> Gera imagens reduzidas e aumenta o campo de visão.</li>
             </ul>
 
-            <!-- LAB INTERATIVO: ESPELHOS -->
             <div class="interactive-box">
-                <h3>🔍 Simulador Interativo: Tipos de Espelhos</h3>
-                <p style="font-size: 0.9rem;">Escolha o espelho abaixo para testar a alteração do objeto refletido:</p>
+                <h3>🔍 Experimento: Espelhos Esféricos</h3>
                 <div class="interactive-controls">
                     <button class="btn-action active" onclick="setMirror('plane', this)">Plano</button>
                     <button class="btn-action" onclick="setMirror('concave-far', this)">Côncavo (Longe)</button>
@@ -462,111 +388,62 @@
                     <strong>Espelho Plano:</strong> Imagem virtual, direta e do mesmo tamanho.
                 </p>
             </div>
-
-            <img src="exemplo-espelhos-esfericos.png" alt="Esquema visual de espelhos côncavos e convexos">
         </section>
 
-        <!-- SEÇÃO 3: CORES E OLHO HUMANO -->
         <section class="content-section">
-            <h2>3. Física das Cores</h2>
-            <p>A luz do Sol é a soma de todas as cores do espectro visível (luz branca). A cor de um objeto depende da frequência de luz que ele absorve ou reflete:</p>
+            <h2>3. A Óptica do Olho Humano</h2>
+            <p>A luz foca na retina formando uma imagem <strong>real e invertida</strong>, transmitida ao cérebro pelo nervo óptico.</p>
             <ul>
-                <li><strong>Objeto Vermelho:</strong> Absorve as demais cores e reflete apenas o vermelho.</li>
-                <li><strong>Objeto Branco:</strong> Reflete todas as frequências da luz sem absorver nenhuma.</li>
-                <li><strong>Objeto Preto:</strong> Absorve todas as cores e não reflete luz. Por isso aquece mais sob o Sol.</li>
+                <li><strong>Miopia:</strong> Dificuldade para enxergar de longe. Corrigida com <strong>lentes divergentes</strong>.</li>
+                <li><strong>Hipermetropia:</strong> Dificuldade para enxergar de perto. Corrigida com <strong>lentes convergentes</strong>.</li>
             </ul>
 
-            <img src="a8dace_1873f62f6c71416f91d4c191c2963db8.png" alt="Espectro visível e dispersão de cores">
-
-            <h2>4. A Óptica do Olho Humano</h2>
-            <p>O olho funciona de forma semelhante a uma câmera. A luz atravessa a córnea e o cristalino, sendo focada diretamente na retina no fundo do olho, onde a imagem se projeta <strong>real e invertida</strong>.</p>
-
-            <p><strong>Ametropias comuns:</strong></p>
-            <ul>
-                <li><strong>Miopia:</strong> O olho é mais longo e a imagem se forma <em>antes</em> da retina. É corrigida com <strong>lentes divergentes</strong>.</li>
-                <li><strong>Hipermetropia:</strong> O olho é mais curto e a imagem se forma <em>depois</em> da retina. É corrigida com <strong>lentes convergentes</strong>.</li>
-            </ul>
-
-            <!-- LAB INTERATIVO: VISÃO -->
             <div class="interactive-box">
-                <h3>👓 Simulador de Correção Visual (Miopia)</h3>
+                <h3>👓 Simulador de Miopia</h3>
                 <div class="interactive-controls">
                     <button class="btn-action active" onclick="setVision(false, this)">Sem Óculos</button>
                     <button class="btn-action" onclick="setVision(true, this)">Com Lente Divergente</button>
                 </div>
                 <div class="sim-stage">
                     <div id="eye-target" class="eye-vision vision-blurry">
-                        📖 Leitura Distante: <strong>LENTES DIVERGENTES CORRIGEM A MIOPIA</strong>
+                        📖 Texto Distante: <strong>VISÃO CORRIGIDA COM LENTE DIVERGENTE</strong>
                     </div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <video controls poster="sua-capa.jpg">
-                        <source src="meu-video.mp4" type="video/mp4">
-                        Seu navegador não suporta este vídeo.
-                    </video>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================================================
-           ÁREA SEPARADA EXCLUSIVAMENTE PARA OS QUIZZES
-           ========================================================================== -->
+        <!-- SEÇÃO DO QUIZ SEPARADA -->
         <section class="quiz-wrapper">
-            <div class="quiz-header-title">
-                <h2>🧩 Central de Quizzes</h2>
-                <p>Teste seus conhecimentos adquiridos nas explicações acima!</p>
-            </div>
+            <h2>🧠 Central de Quizzes</h2>
+            <p style="margin-bottom: 1.5rem;">Responda às perguntas com base no conteúdo lido acima:</p>
 
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-
-            <!-- QUESTÃO 1 -->
             <div class="quiz-card" data-correct="1">
-                <p class="quiz-question">1. Por que uma maçã sob a luz do Sol nos parece de cor vermelha?</p>
+                <p class="quiz-question">1. Por que uma maçã sob a luz do Sol parece vermelha?</p>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela produz e emite sua própria luz vermelha.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela absorve as demais frequências e reflete a cor vermelha.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela refrata a luz azul criando uma ilusão ótica.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela produz luz vermelha.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela absorve as outras cores e reflete o vermelho.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela refrata a luz do Sol.</button>
                 </div>
                 <div class="feedback-msg"></div>
             </div>
 
-            <!-- QUESTÃO 2 -->
             <div class="quiz-card" data-correct="2">
-                <p class="quiz-question">2. Qual é a propriedade fundamental de uma Imagem REAL na Física?</p>
+                <p class="quiz-question">2. Qual é a principal característica de uma Imagem Real?</p>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela é formada sempre na posição vertical "de pé" (direita).</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela só pode existir em espelhos totalmente planos.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela é formada pelos próprios raios de luz e pode ser projetada numa tela.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Não pode ser projetada.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">É formada apenas em espelhos planos.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">É formada pelos raios de luz e pode ser projetada.</button>
                 </div>
                 <div class="feedback-msg"></div>
             </div>
 
-            <!-- QUESTÃO 3 -->
-            <div class="quiz-card" data-correct="0">
-                <p class="quiz-question">3. Qual tipo de espelho é mais indicado para dar um maior campo de visão em garagens?</p>
-                <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Espelho Convexo</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Espelho Côncavo</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Espelho Plano Invertido</button>
-                </div>
-                <div class="feedback-msg"></div>
-            </div>
-
-            <!-- PAINEL DE PONTUAÇÃO -->
-            <div class="score-board" id="score-board">
-                Progresso: 0 de 3 perguntas respondidas
-            </div>
+            <div class="score-board" id="score-board">Acertos: 0 de 2</div>
         </section>
 
     </main>
 
     <script>
-        // TEMA ESCURO / CLARO
+        // Tema Dark/Light
         const themeBtn = document.getElementById('theme-btn');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -580,16 +457,14 @@
             themeText.textContent = newTheme === 'light' ? 'Claro' : 'Escuro';
         });
 
-        // SIMULADOR DE ESPELHOS
+        // Simulador de Espelhos
         function setMirror(type, btn) {
             const obj = document.getElementById('sim-object');
             const desc = document.getElementById('sim-desc');
-            
             btn.parentElement.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
             obj.className = 'object-demo';
-            
             if(type === 'plane') {
                 obj.classList.add('mirror-plane');
                 desc.innerHTML = '<strong>Espelho Plano:</strong> Imagem virtual, direta e do mesmo tamanho.';
@@ -601,56 +476,42 @@
                 desc.innerHTML = '<strong>Espelho Côncavo (Perto):</strong> Imagem virtual, direta e ampliada.';
             } else if(type === 'convex') {
                 obj.classList.add('mirror-convex');
-                desc.innerHTML = '<strong>Espelho Convexo:</strong> Imagem virtual, direta e reduzida (maior ângulo de visão).';
+                desc.innerHTML = '<strong>Espelho Convexo:</strong> Imagem virtual, direta e menor.';
             }
         }
 
-        // SIMULADOR DE VISÃO
+        // Simulador de Visão
         function setVision(corrected, btn) {
             const target = document.getElementById('eye-target');
             btn.parentElement.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             target.className = corrected ? 'eye-vision vision-clear' : 'eye-vision vision-blurry';
         }
 
-        // SISTEMA DO QUIZ COM BARRA DE PROGRESSO
-        let answeredCount = 0;
-        let correctAnswersCount = 0;
-        const totalQuestions = 3;
-
+        // Quiz
+        let totalCorrect = 0;
         function checkAnswer(btn, optionIndex) {
             const card = btn.closest('.quiz-card');
             const correctIndex = parseInt(card.getAttribute('data-correct'));
             const options = card.querySelectorAll('.quiz-btn');
             const feedback = card.querySelector('.feedback-msg');
 
-            options.forEach(button => button.disabled = true);
+            options.forEach(b => b.disabled = true);
 
             if (optionIndex === correctIndex) {
                 btn.classList.add('correct');
-                feedback.textContent = "✨ Resposta correta!";
-                feedback.style.backgroundColor = "rgba(16, 185, 129, 0.15)";
+                feedback.textContent = "✨ Correto!";
                 feedback.style.color = "var(--accent-green)";
-                correctAnswersCount++;
+                totalCorrect++;
             } else {
                 btn.classList.add('wrong');
                 options[correctIndex].classList.add('correct');
-                feedback.textContent = "❌ Resposta incorreta!";
-                feedback.style.backgroundColor = "rgba(239, 68, 68, 0.15)";
+                feedback.textContent = "❌ Incorreto!";
                 feedback.style.color = "var(--accent-red)";
             }
 
             feedback.classList.add('show');
-            answeredCount++;
-
-            // Atualiza barra de progresso
-            const progressPercent = (answeredCount / totalQuestions) * 100;
-            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
-
-            // Atualiza pontuação
-            document.getElementById('score-board').textContent = 
-                `Você acertou ${correctAnswersCount} de ${totalQuestions} perguntas (${answeredCount}/${totalQuestions} respondidas)`;
+            document.getElementById('score-board').textContent = `Acertos: ${totalCorrect} de 2`;
         }
     </script>
 </body>
