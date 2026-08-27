@@ -78,7 +78,7 @@
             padding: 0 1.5rem;
         }
 
-        .content-section {
+        section {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 20px;
@@ -102,12 +102,12 @@
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
         }
 
         .logo {
@@ -120,9 +120,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* ==========================================================================
-           4. COMPONENTES E BOTÕES
-           ========================================================================== */
         .theme-toggle {
             display: inline-flex;
             align-items: center;
@@ -131,7 +128,7 @@
             padding: 0.5rem 1rem;
             border-radius: 9999px;
             border: 1px solid var(--border-color);
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-primary);
             color: var(--text-primary);
             font-weight: 600;
             font-size: 0.875rem;
@@ -146,12 +143,8 @@
             border-color: var(--accent-blue);
         }
 
-        .theme-toggle:active {
-            transform: translateY(0);
-        }
-
         /* ==========================================================================
-           5. MÍDIAS E TIPOGRAFIA
+           4. MÍDIAS E TIPOGRAFIA
            ========================================================================== */
         img, video {
             max-width: 100%;
@@ -163,19 +156,28 @@
             border: 1px solid var(--border-color);
         }
 
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
         h1, h2, h3 {
             color: var(--text-primary);
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-top: 2rem;
+            margin-top: 1rem;
             margin-bottom: 0.75rem;
         }
 
         h1 {
             font-size: 2.25rem;
-            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
         }
 
         h2 {
@@ -191,7 +193,7 @@
         ul { margin-left: 1.5rem; }
 
         /* ==========================================================================
-           6. INTERATIVIDADE E QUIZ
+           5. EXPERIENTOS INTERATIVOS E SIMULADORES
            ========================================================================== */
         .interactive-box {
             background-color: var(--bg-primary);
@@ -265,6 +267,9 @@
         .vision-blurry { filter: blur(5px); }
         .vision-clear { filter: blur(0px); }
 
+        /* ==========================================================================
+           6. COMPONENTES DO QUIZ
+           ========================================================================== */
         .quiz-wrapper {
             background: var(--bg-secondary);
             border: 2px solid var(--accent-purple);
@@ -363,34 +368,51 @@
 
     <main class="container">
         
-        <!-- EXPLICAÇÃO DETALHADA 1 -->
-        <section class="content-section">
+        <section>
             <h1>Como a física projeta tudo o que você vê</h1>
-            <p>A óptica geométrica é o ramo da física que estuda o comportamento da luz e como ela interage com diferentes superfícies. Tudo o que enxergamos é o resultado da luz sendo refletida ou refratada até atingir nossos olhos, desde a imagem refletida no espelho até as lentes das câmeras de celular.</p>
+            <p>Você já parou para pensar que tudo o que a gente enxerga é, na verdade, resultado de raios de luz rebatendo pelas coisas e entrando nos nossos olhos? A óptica geométrica é a área da Física que explica desde o motivo de uma colher parecer "quebrada" dentro de um copo d'água até a tecnologia por trás das câmeras do seu celular e do cinema. Entender esses conceitos ajuda a perceber como a tecnologia e a natureza trabalham juntas o tempo todo.</p>
             
             <img src="reflexaoemespelhoconcavo-0-cke.png" alt="Reflexão em espelho côncavo">
-
-            <h2>1. Formação e Tipos de Imagens</h2>
-            <p>Quando a luz atinge uma superfície reflexiva ou refrativa, o comportamento dos raios luminosos determina a natureza da imagem gerada:</p>
-            <ul>
-                <li><strong>Imagem Real:</strong> É formada pelo cruzamento efetivo dos raios de luz refletidos ou refratados. Este tipo de imagem pode ser projetado em um anteparo (como uma tela de cinema) e apresenta-se sempre invertida (de cabeça para baixo) em relação ao objeto.</li>
-                <li><strong>Imagem Virtual:</strong> É formada pelo prolongamento dos raios de luz. Não pode ser projetada em uma tela física e apresenta-se sempre direita (de pé) em relação ao objeto. É o tipo de imagem que você vê ao se olhar em um espelho plano comum.</li>
-            </ul>
         </section>
 
-        <!-- EXPLICAÇÃO DETALHADA 2 -->
-        <section class="content-section">
-            <h2>2. Espelhos Planos e Esféricos</h2>
-            <p><strong>Espelhos Planos:</strong> Apresentam uma superfície totalmente plana. A imagem gerada é sempre virtual, direita, do mesmo tamanho do objeto e posicionada à mesma distância aparente atrás do espelho.</p>
-            <p><strong>Espelhos Esféricos:</strong> Possuem superfícies curvas derivadas de uma esfera. Dividem-se em dois tipos principais:</p>
+        <section>
+            <h2>1. Formação e Uso de Imagens</h2>
+            <p>Para que uma imagem consiga se formar na física, a luz precisa sair de uma fonte (ou refletir de um objeto), passar por algum meio — como o ar, uma lente ou um espelho — e sofrer reflexão ou refração. Quando esses raios de luz se encontram, ocorre o fenômeno da formação de imagem.</p>
+            
+            <p>Na óptica, dividimos o resultado desse fenômeno em dois tipos principais:</p>
             <ul>
-                <li><strong>Espelho Côncavo:</strong> A superfície refletora é a parte interna da curva. Ele pode ampliar imagens de objetos próximos (como espelhos de maquiagem) ou inverter imagens de objetos distantes.</li>
-                <li><strong>Espelho Convexo:</strong> A superfície refletora é a parte externa da curva. Ele gera sempre imagens virtuais, diretas e reduzidas, oferecendo um campo de visão mais amplo (usado em garagens e ônibus).</li>
+                <li><strong>Imagem Real:</strong> É aquela formada pelo cruzamento efetivo dos próprios raios de luz depois de passarem por uma lente ou refletirem em um espelho. O grande diferencial da imagem real é que ela <strong>pode ser projetada em uma superfície física</strong>, como a tela de um cinema ou a parede usando um projetor de slides. Além disso, toda imagem real fica de ponta-cabeça (invertida) em relação ao objeto original.</li>
+                <li><strong>Imagem Virtual:</strong> Ocorre quando os raios de luz se espalham e o nosso cérebro precisa cruzar os <em>prolongamentos</em> desses raios para entender de onde eles vieram. A imagem virtual se forma "atrás" do espelho ou dentro da lente. Ela <strong>não pode ser projetada</strong> em nenhuma tela e sempre aparece "de pé" (direita) para quem está olhando, como quando você se olha no espelho do banheiro de manhã.</li>
             </ul>
 
-            <!-- Experimento Interativo -->
+            <!-- VÍDEO 1 -->
+            <!-- 
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="capa-formacao-imagem.jpg">
+                        <source src="video-formacao-imagem.mp4" type="video/mp4">
+                        Seu navegador não suporta este vídeo.
+                    </video>
+                </div>
+            </div> 
+            -->
+        </section>
+
+        <section>
+            <h2>2. Espelhos e Reflexão</h2>
+            <p>A reflexão é o fenômeno em que a luz atinge uma superfície e volta para o meio de onde veio. Mas dependendo do formato dessa superfície, o comportamento dos raios muda completamente, criando efeitos visuais bem interessantes:</p>
+            
+            <p><strong>Espelhos Planos:</strong> São os espelhos comuns que usamos no dia a dia. Eles formam imagens virtuais, do mesmo tamanho do objeto e posicionadas exatamente à mesma distância em que você está do espelho. A única diferença é a inversão lateral (se você levanta a mão direita, o seu reflexo parece levantar a mão esquerda).</p>
+            
+            <p><strong>Espelhos Esféricos:</strong> São espelhos curvados que alteram o tamanho e a orientação das coisas. Eles se dividem em dois grupos:</p>
+            <ul>
+                <li><strong>Côncavo (curvado para dentro):</strong> Funciona como a parte interna de uma colher de metal. Dependendo da distância do objeto, ele consegue criar imagens gigantescas (usado por dentistas e em espelhos de maquiagem) ou inverter a imagem de cabeça para baixo quando você se afasta dele.</li>
+                <li><strong>Convexo (curvado para fora):</strong> Funciona como a parte externa da colher. Ele sempre gera imagens virtuais, menores e diretas. A grande vantagem é que ele amplia o campo de visão do ambiente, sendo perfeito para espelhos retrovisores de carros, saídas de garagens e corredores de ônibus e supermercados.</li>
+            </ul>
+
+            <!-- SIMULADOR INTERATIVO DE ESPELHOS -->
             <div class="interactive-box">
-                <h3>🔍 Experimento: Espelhos Esféricos</h3>
+                <h3>🔍 Experimento: Espelhos Esféricos na Prática</h3>
                 <div class="interactive-controls">
                     <button class="btn-action active" onclick="setMirror('plane', this)">Plano</button>
                     <button class="btn-action" onclick="setMirror('concave-far', this)">Côncavo (Longe)</button>
@@ -406,63 +428,129 @@
             </div>
         </section>
 
-        <!-- EXPLICAÇÃO DETALHADA 3 -->
-        <section class="content-section">
-            <h2>3. A Óptica do Olho Humano e Correções Visuais</h2>
-            <p>O olho humano funciona de forma análoga a uma câmara escura. A luz atravessa a córnea e o cristalino (que atuam como lentes convergentes) e projeta uma imagem <strong>real e invertida</strong> sobre a retina. O cérebro faz a interpretação dessa imagem e a vira de pé.</p>
-            <p>Quando ocorrem imperfeições no formato do olho, surgem as ametropias (problemas de visão):</p>
+        <section>
+            <h2>3. Física das Cores</h2>
+            <p>Geralmente achamos que a luz do Sol ou de uma lâmpada comum é simplesmente "amarela" ou "sem cor", mas na verdade ela é uma <strong>luz policromática</strong> (luz branca). Isso significa que ela é a soma de todas as cores do espectro visível — as mesmas cores que vemos quando a luz atravessa gotas de chuva e forma o arco-íris.</p>
+            
+            <p>Mas por que cada objeto tem uma cor diferente? Tudo depende de qual frequência de luz o material prefere absorver e qual ele prefere refletir:</p>
             <ul>
-                <li><strong>Miopia:</strong> O olho é mais longo do que o normal, fazendo com que a imagem se forme antes da retina. Dificulta a visão de objetos distantes. É corrigida com <strong>lentes divergentes</strong>.</li>
-                <li><strong>Hipermetropia:</strong> O olho é mais curto do que o normal, fazendo com que a imagem se forme atrás da retina. Dificulta a visão de objetos próximos. É corrigida com <strong>lentes convergentes</strong>.</li>
+                <li>Quando você olha para uma <strong>maçã vermelha</strong>, significa que a pele da maçã absorveu o azul, o verde, o amarelo e todas as outras frequências da luz branca, e refletiu apenas a luz vermelha até os seus olhos.</li>
+                <li>Se um objeto parece <strong>branco</strong>, significa que ele refletiu todas as cores da luz branca sem absorver nenhuma.</li>
+                <li>Se um objeto parece <strong>preto</strong>, é porque ele absorveu praticamente toda a luz que bateu nele e não refletiu quase nada. É por isso que usar roupas pretas num dia de sol forte dá muito mais calor!</li>
             </ul>
 
-            <!-- Simulador Visual -->
+            <img src="a8dace_1873f62f6c71416f91d4c191c2963db8.png" alt="Espectro visível da luz e decomposição das cores">
+        </section>
+
+        <section>
+            <h2>4. A Óptica do Olho Humano</h2>
+            <p>O olho humano é uma das estruturas biológicas mais impressionantes da natureza e funciona de forma idêntica a uma câmera fotográfica manual. Para que possamos enxergar com clareza, a luz passa por várias estruturas internas até formar a imagem:</p>
+            
+            <ul>
+                <li><strong>Córnea e Cristalino:</strong> A córnea é a camada transparente externa e o cristalino funciona como uma lente flexível. Juntos, eles refratam a luz para focar o raio exatamente no fundo do olho. O cristalino consegue mudar de formato para ajustar o foco quando olhamos algo muito perto ou muito longe.</li>
+                <li><strong>Pupila:</strong> É a abertura central (a "bolinha preta" do olho) que funciona como o diafragma de uma câmera. Ela diminui no sol forte para não queimar as células internas e dilata no escuro para captar o máximo de luz possível.</li>
+                <li><strong>Retina:</strong> É a parede no fundo do olho reforçada com células fotossensíveis (cones e bastonetes). A imagem se projeta na retina de forma <strong>real e invertida</strong>. Em seguida, o <strong>nervo óptico</strong> transforma essa luz em sinais elétricos e os envia para o cérebro, que desinverte a imagem para que possamos entender o mundo na orientação correta.</li>
+            </ul>
+
+            <p><strong>Ametropias: Quando a visão precisa de ajuda</strong></p>
+            <p>Nem todo mundo tem o olho com o formato perfeito, e é aí que entram os problemas de visão que corrigimos com óculos ou lentes de contato:</p>
+            <ul>
+                <li><strong>Miopia:</strong> O globo ocular é ligeiramente mais longo do que o normal. Por causa disso, a imagem se forma <em>antes</em> da retina, fazendo com que objetos distantes fiquem borrados. É corrigida com <strong>lentes divergentes</strong>.</li>
+                <li><strong>Hipermetropia:</strong> O olho é mais curto do que o normal, fazendo com que a imagem se forme <em>depois</em> da retina. Isso dificulta o foco em objetos próximos (como ler um livro). É corrigida com <strong>lentes convergentes</strong>.</li>
+            </ul>
+
+            <!-- SIMULADOR DE VISÃO E ÓCULOS -->
             <div class="interactive-box">
-                <h3>👓 Simulador de Miopia</h3>
+                <h3>👓 Simulador de Visão (Miopia vs Correção)</h3>
                 <div class="interactive-controls">
-                    <button class="btn-action active" onclick="setVision(false, this)">Sem Óculos</button>
-                    <button class="btn-action" onclick="setVision(true, this)">Com Lente Divergente</button>
+                    <button class="btn-action active" onclick="setVision(false, this)">Visão sem Óculos (Miopia)</button>
+                    <button class="btn-action" onclick="setVision(true, this)">Visão com Lente Divergente</button>
                 </div>
                 <div class="sim-stage">
                     <div id="eye-target" class="eye-vision vision-blurry">
-                        📖 Texto Distante: <strong>VISÃO CORRIGIDA COM LENTE DIVERGENTE</strong>
+                        📖 Objeto Distante: <strong>VISÃO FOCADA COM SUCESSO!</strong>
                     </div>
                 </div>
             </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="sua-capa.jpg">
+                        <source src="meu-video.mp4" type="video/mp4">
+                        Seu navegador não suporta este vídeo.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Fibra Óptica e Transmissão de Dados</h2>
+            <p>A fibra óptica é um filamento extremamente fino feito de vidro ou plástico de alta pureza que revolucionou o mundo moderno. É através dela que a internet de alta velocidade e os dados das redes de comunicação chegam até nós, utilizando feixes de luz para carregar informações quase à velocidade da luz.</p>
+            
+            <p>O funcionamento da fibra óptica baseia-se num princípio da física chamado <strong>Reflexão Total da Luz</strong>:</p>
+            <ul>
+                <li><strong>Reflexão Total:</strong> Ocorre quando um feixe de luz tenta passar de um meio mais denso (com maior índice de refração) para um meio menos denso, mas em um ângulo tão inclinado (maior que o ângulo limite) que a luz não consegue escapar. Em vez de refratar, ela bate na parede interna do cabo e reflete 100% de volta para dentro.</li>
+                <li><strong>Estrutura da Fibra:</strong> A fibra é composta por um <em>núcleo</em> (onde a luz caminha) envolto por uma <em>casca</em> que possui um índice de refração menor. Isso garante que o raio de luz vá rebatendo continuamente nas paredes internas por quilômetros sem perder sinal ou vazar para fora.</li>
+            </ul>
         </section>
 
         <!-- SEÇÃO DO QUIZ -->
         <section class="quiz-wrapper">
-            <h2>🧠 Central de Quizzes</h2>
-            <p style="margin-bottom: 1.5rem;">Responda às perguntas com base no conteúdo lido acima:</p>
+            <h2>🧠 Central de Quizzes e Testes</h2>
+            <p style="margin-bottom: 1.5rem;">Testes os seus conhecimentos adquiridos ao longo da leitura:</p>
 
+            <!-- QUESTÃO 1 -->
             <div class="quiz-card" data-correct="1">
-                <p class="quiz-question">1. Por que uma maçã sob a luz do Sol parece vermelha?</p>
+                <p class="quiz-question">1. Por que uma maçã sob a luz branca do Sol parece ser vermelha aos nossos olhos?</p>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela produz luz vermelha.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela absorve as outras cores e reflete o vermelho.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela refrata a luz do Sol.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela produz a sua própria luz vermelha.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela absorve as outras cores e reflete apenas a luz vermelha.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela refrata a luz do Sol transformando-a em laser.</button>
                 </div>
                 <div class="feedback-msg"></div>
             </div>
 
+            <!-- QUESTÃO 2 -->
             <div class="quiz-card" data-correct="2">
-                <p class="quiz-question">2. Qual é a principal característica de uma Imagem Real?</p>
+                <p class="quiz-question">2. Qual é a principal característica que diferencia uma Imagem Real de uma Virtual?</p>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Não pode ser projetada.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">É formada apenas em espelhos planos.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">É formada pelos raios de luz e pode ser projetada.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">A imagem real não pode ser projetada em nenhuma tela.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">A imagem real fica sempre "de pé" (direita).</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">A imagem real é formada pelo cruzamento direto dos raios e pode ser projetada.</button>
                 </div>
                 <div class="feedback-msg"></div>
             </div>
 
-            <div class="score-board" id="score-board">Acertos: 0 de 2</div>
+            <!-- QUESTÃO 3 -->
+            <div class="quiz-card" data-correct="0">
+                <p class="quiz-question">3. Qual tipo de lente é utilizada para corrigir a Miopia?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Lentes Divergentes.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Lentes Convergentes.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Espelhos Côncavos.</button>
+                </div>
+                <div class="feedback-msg"></div>
+            </div>
+
+            <!-- QUESTÃO 4 -->
+            <div class="quiz-card" data-correct="1">
+                <p class="quiz-question">4. O princípio físico que permite a transmissão de dados na Fibra Óptica é chamado de:</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Refração Plana.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Reflexão Total da Luz.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ametropia Óptica.</button>
+                </div>
+                <div class="feedback-msg"></div>
+            </div>
+
+            <div class="score-board" id="score-board">Pontuação: 0 de 4 acertos</div>
         </section>
 
     </main>
 
+    <!-- JAVASCRIPT INTEGRADO -->
     <script>
-        // Lógica do Tema Dark/Light
+        // 1. ALTERNADOR DE TEMA (DARK / LIGHT)
         const themeBtn = document.getElementById('theme-btn');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -476,10 +564,11 @@
             themeText.textContent = newTheme === 'light' ? 'Claro' : 'Escuro';
         });
 
-        // Lógica dos Simuladores
+        // 2. SIMULADOR INTERATIVO DE ESPELHOS
         function setMirror(type, btn) {
             const obj = document.getElementById('sim-object');
             const desc = document.getElementById('sim-desc');
+            
             btn.parentElement.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -499,6 +588,7 @@
             }
         }
 
+        // 3. SIMULADOR DE MIOPIA / FOCO DA VISÃO
         function setVision(corrected, btn) {
             const target = document.getElementById('eye-target');
             btn.parentElement.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
@@ -506,30 +596,37 @@
             target.className = corrected ? 'eye-vision vision-clear' : 'eye-vision vision-blurry';
         }
 
-        // Lógica do Quiz
+        // 4. LÓGICA INTERATIVA DO QUIZ
         let totalCorrect = 0;
+        let answeredQuestions = 0;
+        const totalQuestions = document.querySelectorAll('.quiz-card').length;
+
         function checkAnswer(btn, optionIndex) {
             const card = btn.closest('.quiz-card');
             const correctIndex = parseInt(card.getAttribute('data-correct'));
             const options = card.querySelectorAll('.quiz-btn');
             const feedback = card.querySelector('.feedback-msg');
 
+            // Desabilita botões do mesmo card para evitar múltiplos cliques
             options.forEach(b => b.disabled = true);
 
             if (optionIndex === correctIndex) {
                 btn.classList.add('correct');
-                feedback.textContent = "✨ Correto!";
+                feedback.textContent = "✨ Correto! Resposta certa.";
                 feedback.style.color = "var(--accent-green)";
                 totalCorrect++;
             } else {
                 btn.classList.add('wrong');
                 options[correctIndex].classList.add('correct');
-                feedback.textContent = "❌ Incorreto!";
+                feedback.textContent = "❌ Incorreto. A opção correta foi destacada em verde.";
                 feedback.style.color = "var(--accent-red)";
             }
 
             feedback.classList.add('show');
-            document.getElementById('score-board').textContent = `Acertos: ${totalCorrect} de 2`;
+            answeredQuestions++;
+            
+            // Atualiza placar
+            document.getElementById('score-board').textContent = `Pontuação: ${totalCorrect} de ${totalQuestions} acertos`;
         }
     </script>
 </body>
