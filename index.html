@@ -4,366 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Integrador IFA - Física e Óptica Interativa</title>
+    
+    <!-- Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     
-    <style>
-        /* ==========================================================================
-           1. VARIÁVEIS DE TEMA E RESET GLOBAL
-           ========================================================================== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
-            --glass-bg: rgba(30, 41, 59, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --text-main: #f8fafc;
-            --text-sub: #cbd5e1;
-            --accent-cyan: #38bdf8;
-            --accent-purple: #c084fc;
-            --accent-pink: #f472b6;
-            --accent-green: #34d399;
-            --accent-red: #f87171;
-            --shadow-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            --transition-speed: 0.3s;
-        }
-
-        [data-theme="light"] {
-            --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 50%, #f0f9ff 100%);
-            --glass-bg: rgba(255, 255, 255, 0.8);
-            --glass-border: rgba(0, 0, 0, 0.08);
-            --text-main: #0f172a;
-            --text-sub: #334155;
-            --accent-cyan: #0284c7;
-            --accent-purple: #7e22ce;
-            --accent-pink: #db2777;
-            --accent-green: #059669;
-            --accent-red: #dc2626;
-            --shadow-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
-        }
-
-        /* ==========================================================================
-           2. ESTILIZAÇÃO E ESTRUTURA EXPANDIDA (LAYOUT MAIOR)
-           ========================================================================== */
-        body {
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
-            transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
-        }
-
-        /* Container expandido de 900px para 1200px */
-        .container {
-            max-width: 1200px;
-            margin: 2.5rem auto;
-            padding: 0 2rem;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.4rem;
-            border-radius: 50px;
-            border: 1px solid var(--glass-border);
-            background: var(--glass-bg);
-            color: var(--text-main);
-            font-weight: 600;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-speed) ease;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px var(--accent-cyan);
-            transform: scale(1.02);
-        }
-
-        section, .quiz-wrapper {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 3rem;
-            margin-bottom: 2.5rem;
-            box-shadow: var(--shadow-glow);
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-        }
-
-        section:hover {
-            transform: translateY(-3px);
-        }
-
-        h1 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.2rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1.2rem;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        p, ul {
-            font-size: 1.05rem;
-            color: var(--text-sub);
-            margin-bottom: 1.4rem;
-        }
-
-        ul { margin-left: 2rem; }
-
-        img {
-            width: 100%;
-            max-height: 480px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            margin: 1.8rem 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            object-fit: cover;
-        }
-
-        /* ==========================================================================
-           3. PAINÉIS INTERATIVOS E SIMULADORES EXPANDIDOS
-           ========================================================================== */
-        .interactive-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .interactive-controls {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn-action {
-            background: var(--glass-bg);
-            color: var(--text-main);
-            border: 1px solid var(--glass-border);
-            padding: 0.8rem 1.5rem;
-            border-radius: 14px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all var(--transition-speed) ease;
-        }
-
-        .btn-action:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-2px);
-        }
-
-        .btn-action.active {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            color: #ffffff;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
-        }
-
-        /* Palco de simulação mais alto e espaçoso */
-        .sim-stage {
-            height: 280px;
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed var(--glass-border);
-            position: relative;
-            overflow: hidden;
-            transition: background 0.5s ease;
-        }
-
-        .sim-desc-text {
-            font-size: 1.05rem;
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--accent-cyan);
-            min-height: 1.5em;
-        }
-
-        /* Animações e Estados do Simulador */
-        .object-demo {
-            font-size: 5rem;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .mirror-plane { transform: scaleX(-1); }
-        .mirror-concave-far { transform: scaleY(-1) scale(0.8); }
-        .mirror-concave-close { transform: scale(1.5); }
-        .mirror-convex { transform: scale(0.6); }
-
-        .color-object {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background-color: #ff0000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            transition: background-color 0.5s ease, filter 0.5s ease;
-        }
-
-        .light-beam {
-            width: 100%;
-            height: 12px;
-            background: #ffffff;
-            box-shadow: 0 0 15px #ffffff;
-            transition: all 0.5s ease;
-        }
-
-        .rainbow-beam {
-            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
-            box-shadow: 0 0 20px rgba(255,255,255,0.8);
-        }
-
-        .eye-vision {
-            font-size: 1.2rem;
-            padding: 1.5rem 2.5rem;
-            border-radius: 16px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            transition: filter 0.4s ease;
-        }
-
-        .vision-blurry { filter: blur(6px); }
-        .vision-clear { filter: blur(0px); }
-
-        /* ==========================================================================
-           4. QUIZ ESTILIZADO (LAYOUT EXPANDIDO)
-           ========================================================================== */
-        .quiz-wrapper {
-            border: 1px solid var(--accent-purple);
-        }
-
-        .quiz-card {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .quiz-question {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            color: var(--text-main);
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .quiz-btn {
-            background: var(--glass-bg);
-            color: var(--text-main);
-            border: 1px solid var(--glass-border);
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
-            text-align: left;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .quiz-btn:hover:not([disabled]) {
-            border-color: var(--accent-cyan);
-            background: rgba(56, 189, 248, 0.15);
-        }
-
-        .quiz-btn.correct {
-            background: var(--accent-green) !important;
-            color: #000000 !important;
-            font-weight: 700;
-        }
-
-        .quiz-btn.wrong {
-            background: var(--accent-red) !important;
-            color: #ffffff !important;
-            font-weight: 700;
-        }
-
-        .feedback-msg {
-            margin-top: 1rem;
-            font-size: 1rem;
-            font-weight: 600;
-            display: none;
-        }
-
-        .feedback-msg.show { display: block; }
-
-        .score-board {
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 800;
-            padding: 1.2rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            color: var(--accent-cyan);
-            border: 1px solid var(--glass-border);
-        }
-    </style>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -389,7 +37,7 @@
         <section>
             <h2>1. Formação e Uso de Imagens</h2>
             <p>Para que uma imagem consiga se formar na física, a luz precisa sair de uma fonte, passar por algum meio (ar, lente, espelho) e sofrer reflexão ou refração.</p>
-            
+
             <ul>
                 <li><strong>Imagem Real:</strong> Formada pelo cruzamento efetivo dos raios de luz. <strong>Pode ser projetada em uma tela</strong> e aparece de ponta-cabeça (invertida).</li>
                 <li><strong>Imagem Virtual:</strong> Formada pelo cruzamento dos <em>prolongamentos</em> dos raios. <strong>Não pode ser projetada</strong> e sempre aparece "de pé" (direita).</li>
@@ -400,7 +48,6 @@
             <h2>2. Espelhos e Reflexão</h2>
             <p>A reflexão ocorre quando a luz atinge uma superfície e volta ao meio de origem. Veja o comportamento nos diferentes espelhos:</p>
 
-            <!-- SIMULADOR INTERATIVO DE ESPELHOS -->
             <div class="interactive-box">
                 <h3>🔍 Experimento: Espelhos Esféricos</h3>
                 <div class="interactive-controls" id="controls-mirror">
@@ -422,7 +69,6 @@
             <h2>3. Física das Cores & Interação com a Luz</h2>
             <p>A luz branca do Sol é <strong>policromática</strong>, contendo todas as cores do espectro. A cor que vemos em um objeto depende de quais frequências de luz ele absorve e qual ele reflete.</p>
 
-            <!-- SIMULADOR 1: INTERAÇÃO DE COR E LUZ -->
             <div class="interactive-box">
                 <h3>🎨 Experimento: Como a luz altera a cor do objeto?</h3>
                 <p style="font-size: 0.95rem;">Escolha a cor da luz incidente para iluminar uma <strong>Maçã Vermelha</strong>:</p>
@@ -440,7 +86,6 @@
                 </p>
             </div>
 
-            <!-- SIMULADOR 2: DECOMPOSIÇÃO DA LUZ (PRISMA) -->
             <div class="interactive-box">
                 <h3>🌈 Experimento: Decomposição da Luz (Prisma)</h3>
                 <div class="interactive-controls" id="controls-prism">
@@ -460,7 +105,6 @@
             <h2>4. A Óptica do Olho Humano</h2>
             <p>O olho funciona como uma câmara escura. A luz passa pela córnea, pupila e cristalino, projetando uma imagem real e invertida na retina.</p>
 
-            <!-- SIMULADOR DE MIOPIA -->
             <div class="interactive-box">
                 <h3>👓 Simulador de Visão (Miopia vs Correção)</h3>
                 <div class="interactive-controls" id="controls-vision">
@@ -480,7 +124,6 @@
             <p>A fibra óptica transmite dados na velocidade da luz através da <strong>Reflexão Total da Luz</strong>. A luz bate no núcleo e reflete totalmente para dentro sem escapar pelas bordas.</p>
         </section>
 
-        <!-- CENTRAL DE QUIZZES -->
         <section class="quiz-wrapper">
             <h2>🧠 Quiz Final de Conhecimentos</h2>
             <p>Teste o seu aprendizado com as perguntas abaixo:</p>
@@ -522,7 +165,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. TEMA DARK / LIGHT
             const themeBtn = document.getElementById('theme-btn');
             const themeIcon = document.getElementById('theme-icon');
             const themeText = document.getElementById('theme-text');
@@ -534,13 +176,11 @@
                 themeText.textContent = isLight ? 'Escuro' : 'Claro';
             });
 
-            // Helper para alternar botões ativos
             function setActiveBtn(container, selectedBtn) {
                 container.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
                 selectedBtn.classList.add('active');
             }
 
-            // 2. SIMULADOR DE ESPELHOS
             const mirrorControls = document.getElementById('controls-mirror');
             const simObject = document.getElementById('sim-object');
             const simDesc = document.getElementById('sim-desc');
@@ -568,7 +208,6 @@
                 }
             });
 
-            // 3. SIMULADOR DE CORES DA LUZ
             const lightControls = document.getElementById('controls-light');
             const appleObject = document.getElementById('apple-object');
             const lightStage = document.getElementById('light-stage');
@@ -604,7 +243,6 @@
                 }
             });
 
-            // 4. SIMULADOR DO PRISMA DE NEWTON
             const prismControls = document.getElementById('controls-prism');
             const prismBeam = document.getElementById('prism-beam');
             const prismDesc = document.getElementById('prism-desc');
@@ -625,7 +263,6 @@
                 }
             });
 
-            // 5. SIMULADOR DE VISÃO
             const visionControls = document.getElementById('controls-vision');
             const eyeTarget = document.getElementById('eye-target');
 
@@ -638,7 +275,6 @@
                 eyeTarget.className = corrected ? 'eye-vision vision-clear' : 'eye-vision vision-blurry';
             });
 
-            // 6. LOGICA DO QUIZ
             let totalCorrect = 0;
             const quizCards = document.querySelectorAll('.quiz-card');
             const totalQuestions = quizCards.length;
