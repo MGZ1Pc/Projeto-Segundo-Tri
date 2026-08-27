@@ -10,7 +10,7 @@
     
     <style>
         /* ==========================================================================
-           1. VARIÁVEIS E TEMA MODERNIZADO (GLASSMORPHISM)
+           1. VARIÁVEIS DE ESTILO E TEMAS (DARK / LIGHT)
            ========================================================================== */
         *, *::before, *::after {
             margin: 0;
@@ -46,13 +46,16 @@
             --shadow-glow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
+        /* ==========================================================================
+           2. LAYOUT BASE E TIPOGRAFIA (CSS)
+           ========================================================================== */
         body {
             background: var(--bg-gradient);
             background-attachment: fixed;
             color: var(--text-main);
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.6;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -61,7 +64,6 @@
             padding: 0 1.5rem;
         }
 
-        /* Glassmorphism Cards */
         section, .quiz-wrapper {
             background: var(--glass-bg);
             backdrop-filter: blur(16px);
@@ -78,7 +80,6 @@
             transform: translateY(-2px);
         }
 
-        /* Nav Header */
         header {
             position: sticky;
             top: 0;
@@ -127,7 +128,6 @@
             box-shadow: 0 0 15px var(--accent-cyan);
         }
 
-        /* Typography & Visuals */
         h1 {
             font-size: 2.5rem;
             font-weight: 800;
@@ -142,6 +142,10 @@
             font-size: 1.6rem;
             color: var(--accent-cyan);
             margin-bottom: 1rem;
+        }
+
+        h3 {
+            margin-bottom: 0.8rem;
         }
 
         p, ul {
@@ -160,7 +164,7 @@
         }
 
         /* ==========================================================================
-           2. COMPONENTES INTERATIVOS E SIMULADORES
+           3. SIMULADORES E INTERATIVIDADE (CSS)
            ========================================================================== */
         .interactive-box {
             background: rgba(0, 0, 0, 0.15);
@@ -211,19 +215,27 @@
             border: 1px dashed var(--glass-border);
             position: relative;
             overflow: hidden;
+            transition: background 0.5s ease;
         }
 
-        /* Simulador 1: Espelhos */
+        .sim-desc-text {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 0.75rem;
+            color: var(--accent-cyan);
+        }
+
+        /* Animações dos simuladores */
         .object-demo {
             font-size: 4rem;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .mirror-plane { transform: scaleX(-1); }
         .mirror-concave-far { transform: scaleY(-1) scale(0.8); }
         .mirror-concave-close { transform: scale(1.5); }
         .mirror-convex { transform: scale(0.6); }
 
-        /* Simulador 2: Iluminação e Cores */
         .color-object {
             width: 100px;
             height: 100px;
@@ -238,7 +250,6 @@
             transition: background-color 0.5s ease, filter 0.5s ease;
         }
 
-        /* Simulador 3: Prisma */
         .light-beam {
             width: 100%;
             height: 8px;
@@ -246,12 +257,12 @@
             box-shadow: 0 0 15px #fff;
             transition: all 0.5s ease;
         }
+
         .rainbow-beam {
             background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
             box-shadow: 0 0 20px rgba(255,255,255,0.8);
         }
 
-        /* Simulador 4: Olho Humano */
         .eye-vision {
             font-size: 1.2rem;
             padding: 1.2rem 2rem;
@@ -260,11 +271,12 @@
             border: 1px solid var(--glass-border);
             transition: filter 0.4s ease;
         }
+
         .vision-blurry { filter: blur(6px); }
         .vision-clear { filter: blur(0px); }
 
         /* ==========================================================================
-           3. QUIZ ESTILIZADO
+           4. COMPONENTES DO QUIZ (CSS)
            ========================================================================== */
         .quiz-wrapper {
             border: 1px solid var(--accent-purple);
@@ -320,6 +332,7 @@
             font-weight: 600;
             display: none;
         }
+
         .feedback-msg.show { display: block; }
 
         .score-board {
@@ -337,7 +350,7 @@
 
     <header>
         <nav>
-            <div class="logo">Física & Óptica</div>
+            <h1 class="logo">Física & Óptica</h1>
             <button class="theme-toggle" id="theme-btn" aria-label="Alternar tema">
                 <span id="theme-icon">🌙</span>
                 <span id="theme-text">Escuro</span>
@@ -346,29 +359,25 @@
     </header>
 
     <main class="container">
-        
         <section>
             <h1>Como a física projeta tudo o que você vê</h1>
-            <p>Você já parou para pensar que tudo o que a gente enxerga é, na verdade, resultado de raios de luz rebatendo pelas coisas e entrando nos nossos olhos? A óptica geométrica é a área da Física que explica desde o motivo de uma colher parecer "quebrada" dentro de um copo d'água até a tecnologia por trás das câmeras do seu celular e do cinema.</p>
-            
-            <img src="reflexaoemespelhoconcavo-0-cke.png" alt="Reflexão em espelho côncavo">
+            <p>Você já parou para pensar que tudo o que a gente enxerga é resultado de raios de luz rebatendo pelas coisas e entrando nos nossos olhos? A óptica geométrica explica desde a ilusão de uma colher dobrada no copo até as lentes do celular.</p>
+            <img src="reflexaoemespelhoconcavo-0-cke.png" alt="Reflexão em espelho côncavo" loading="lazy">
         </section>
 
         <section>
             <h2>1. Formação e Uso de Imagens</h2>
-            <p>Para que uma imagem consiga se formar na física, a luz precisa sair de uma fonte, passar por algum meio (ar, lente, espelho) e sofrer reflexão ou refração.</p>
-            
+            <p>Para que uma imagem consiga se formar na física, a luz precisa sair de uma fonte, passar por algum meio e sofrer reflexão ou refração.</p>
             <ul>
-                <li><strong>Imagem Real:</strong> Formada pelo cruzamento efetivo dos raios de luz. <strong>Pode ser projetada em uma tela</strong> e aparece de ponta-cabeça (invertida).</li>
-                <li><strong>Imagem Virtual:</strong> Formada pelo cruzamento dos <em>prolongamentos</em> dos raios. <strong>Não pode ser projetada</strong> e sempre aparece "de pé" (direita).</li>
+                <li><strong>Imagem Real:</strong> Formada pelo cruzamento dos raios de luz. Pode ser projetada e aparece invertida.</li>
+                <li><strong>Imagem Virtual:</strong> Formada pelos prolongamentos dos raios. Não pode ser projetada e aparece direita.</li>
             </ul>
         </section>
 
         <section>
             <h2>2. Espelhos e Reflexão</h2>
-            <p>A reflexão ocorre quando a luz atinge uma superfície e volta ao meio de origem. Veja o comportamento nos diferentes espelhos:</p>
+            <p>A reflexão ocorre quando a luz atinge uma superfície e retorna ao meio de origem.</p>
 
-            <!-- SIMULADOR INTERATIVO DE ESPELHOS -->
             <div class="interactive-box">
                 <h3>🔍 Experimento: Espelhos Esféricos</h3>
                 <div class="interactive-controls">
@@ -380,7 +389,7 @@
                 <div class="sim-stage">
                     <div id="sim-object" class="object-demo mirror-plane">🚀</div>
                 </div>
-                <p id="sim-desc" style="font-size: 0.9rem; text-align: center; margin-top: 0.75rem; color: var(--accent-cyan);">
+                <p id="sim-desc" class="sim-desc-text" aria-live="polite">
                     <strong>Espelho Plano:</strong> Imagem virtual, direta e do mesmo tamanho.
                 </p>
             </div>
@@ -388,12 +397,11 @@
 
         <section>
             <h2>3. Física das Cores & Interação com a Luz</h2>
-            <p>A luz branca do Sol é <strong>policromática</strong>, contendo todas as cores do espectro. A cor que vemos em um objeto depende de quais frequências de luz ele absorve e qual ele reflete.</p>
+            <p>A luz branca é policromática. A cor que vemos em um objeto depende de quais frequências ele absorve e reflete.</p>
 
-            <!-- NOVO SIMULADOR 1: INTERAÇÃO DE COR E LUZ -->
             <div class="interactive-box">
                 <h3>🎨 Experimento: Como a luz altera a cor do objeto?</h3>
-                <p style="font-size: 0.85rem;">Escolha a cor da luz incidente para iluminar uma <strong>Maçã Vermelha</strong>:</p>
+                <p>Escolha a cor da luz incidente para iluminar uma <strong>Maçã Vermelha</strong>:</p>
                 <div class="interactive-controls">
                     <button class="btn-action active" onclick="setLightColor('white', this)">Luz Branca</button>
                     <button class="btn-action" onclick="setLightColor('red', this)">Luz Vermelha</button>
@@ -403,12 +411,11 @@
                 <div class="sim-stage" id="light-stage">
                     <div id="apple-object" class="color-object">Maçã</div>
                 </div>
-                <p id="color-desc" style="font-size: 0.9rem; text-align: center; margin-top: 0.75rem; color: var(--accent-cyan);">
-                    <strong>Luz Branca:</strong> A maçã absorve as outras cores e reflete o vermelho. Vemos a maçã <strong>vermelha</strong>.
+                <p id="color-desc" class="sim-desc-text" aria-live="polite">
+                    <strong>Luz Branca:</strong> A maçã absorve as outras cores e reflete o vermelho.
                 </p>
             </div>
 
-            <!-- NOVO SIMULADOR 2: DECOMPOSIÇÃO DA LUZ (PRISMA) -->
             <div class="interactive-box">
                 <h3>🌈 Experimento: Decomposição da Luz (Prisma)</h3>
                 <div class="interactive-controls">
@@ -418,19 +425,16 @@
                 <div class="sim-stage">
                     <div id="prism-beam" class="light-beam"></div>
                 </div>
-                <p id="prism-desc" style="font-size: 0.9rem; text-align: center; margin-top: 0.75rem; color: var(--accent-cyan);">
-                    Luz branca viajando sem dispersão.
-                </p>
+                <p id="prism-desc" class="sim-desc-text" aria-live="polite">Luz branca viajando sem dispersão.</p>
             </div>
 
-            <img src="a8dace_1873f62f6c71416f91d4c191c2963db8.png" alt="Espectro visível da luz e decomposição das cores">
+            <img src="a8dace_1873f62f6c71416f91d4c191c2963db8.png" alt="Espectro visível da luz" loading="lazy">
         </section>
 
         <section>
             <h2>4. A Óptica do Olho Humano</h2>
-            <p>O olho funciona como uma câmara escura. A luz passa pela córnea, pupila e cristalino, projetando uma imagem real e invertida na retina.</p>
+            <p>O olho projeta uma imagem real e invertida na retina através da córnea e do cristalino.</p>
 
-            <!-- SIMULADOR DE MIOPIA -->
             <div class="interactive-box">
                 <h3>👓 Simulador de Visão (Miopia vs Correção)</h3>
                 <div class="interactive-controls">
@@ -445,53 +449,35 @@
             </div>
         </section>
 
-        <section>
-            <h2>5. Fibra Óptica e Transmissão de Dados</h2>
-            <p>A fibra óptica transmite dados na velocidade da luz através da <strong>Reflexão Total da Luz</strong>. A luz bate no núcleo e reflete totalmente para dentro sem escapar pelas bordas.</p>
-        </section>
-
-        <!-- CENTRAL DE QUIZZES -->
         <section class="quiz-wrapper">
             <h2>🧠 Quiz Final de Conhecimentos</h2>
-            <p>Teste o seu aprendizado com as perguntas abaixo:</p>
 
             <div class="quiz-card" data-correct="1">
                 <p class="quiz-question">1. O que acontece se iluminarmos uma maçã vermelha com uma luz puramente AZUL?</p>
                 <div class="quiz-options">
                     <button class="quiz-btn" onclick="checkAnswer(this, 0)">Ela parecerá brilhante e roxa.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela parecerá preta, pois absorve a luz azul e não reflete nada.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Ela parecerá preta, pois absorve a luz azul.</button>
                     <button class="quiz-btn" onclick="checkAnswer(this, 2)">Ela reflete a luz azul e fica azulada.</button>
                 </div>
                 <div class="feedback-msg"></div>
             </div>
 
             <div class="quiz-card" data-correct="2">
-                <p class="quiz-question">2. Qual a principal vantagem dos espelhos convexos nas garagens e retrovisores?</p>
+                <p class="quiz-question">2. Qual a vantagem dos espelhos convexos nos retrovisores?</p>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Eles invertem a imagem de ponta cabeça.</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Eles invertem a imagem.</button>
                     <button class="quiz-btn" onclick="checkAnswer(this, 1)">Eles aumentam o tamanho real dos objetos.</button>
                     <button class="quiz-btn" onclick="checkAnswer(this, 2)">Eles ampliam o campo de visão.</button>
                 </div>
                 <div class="feedback-msg"></div>
             </div>
 
-            <div class="quiz-card" data-correct="0">
-                <p class="quiz-question">3. Qual tipo de lente é utilizada para corrigir a Miopia?</p>
-                <div class="quiz-options">
-                    <button class="quiz-btn" onclick="checkAnswer(this, 0)">Lentes Divergentes.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 1)">Lentes Convergentes.</button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, 2)">Lentes Planas.</button>
-                </div>
-                <div class="feedback-msg"></div>
-            </div>
-
-            <div class="score-board" id="score-board">Pontuação: 0 de 3 acertos</div>
+            <div class="score-board" id="score-board" aria-live="polite">Pontuação: 0 de 2 acertos</div>
         </section>
-
     </main>
 
     <script>
-        // 1. TEMA DARK / LIGHT
+        // Tema Dark/Light
         const themeBtn = document.getElementById('theme-btn');
         const themeIcon = document.getElementById('theme-icon');
         const themeText = document.getElementById('theme-text');
@@ -503,7 +489,7 @@
             themeText.textContent = isLight ? 'Escuro' : 'Claro';
         });
 
-        // 2. SIMULADOR DE ESPELHOS
+        // Simulador de Espelhos
         function setMirror(type, btn) {
             const obj = document.getElementById('sim-object');
             const desc = document.getElementById('sim-desc');
@@ -513,20 +499,20 @@
             obj.className = 'object-demo';
             if(type === 'plane') {
                 obj.classList.add('mirror-plane');
-                desc.innerHTML = '<strong>Espelho Plano:</strong> Imagem virtual, direta e do mesmo tamanho.';
+                desc.textContent = 'Espelho Plano: Imagem virtual, direta e do mesmo tamanho.';
             } else if(type === 'concave-far') {
                 obj.classList.add('mirror-concave-far');
-                desc.innerHTML = '<strong>Espelho Côncavo (Longe):</strong> Imagem real, invertida e menor.';
+                desc.textContent = 'Espelho Côncavo (Longe): Imagem real, invertida e menor.';
             } else if(type === 'concave-close') {
                 obj.classList.add('mirror-concave-close');
-                desc.innerHTML = '<strong>Espelho Côncavo (Perto):</strong> Imagem virtual, direta e ampliada.';
+                desc.textContent = 'Espelho Côncavo (Perto): Imagem virtual, direta e ampliada.';
             } else if(type === 'convex') {
                 obj.classList.add('mirror-convex');
-                desc.innerHTML = '<strong>Espelho Convexo:</strong> Imagem virtual, direta e menor.';
+                desc.textContent = 'Espelho Convexo: Imagem virtual, direta e menor.';
             }
         }
 
-        // 3. SIMULADOR DE CORES DA LUZ
+        // Simulador de Luz/Cores
         function setLightColor(color, btn) {
             const apple = document.getElementById('apple-object');
             const stage = document.getElementById('light-stage');
@@ -539,26 +525,21 @@
                 stage.style.background = 'rgba(255,255,255,0.1)';
                 apple.style.backgroundColor = '#ff0000';
                 apple.style.filter = 'brightness(1)';
-                desc.innerHTML = '<strong>Luz Branca:</strong> A maçã reflete a cor vermelha e absorve as demais. Vemos a maçã <strong>vermelha</strong>.';
+                desc.textContent = 'Luz Branca: A maçã reflete o vermelho e absorve as demais cores.';
             } else if(color === 'red') {
                 stage.style.background = 'rgba(255, 0, 0, 0.2)';
                 apple.style.backgroundColor = '#ff0000';
                 apple.style.filter = 'brightness(1.2)';
-                desc.innerHTML = '<strong>Luz Vermelha:</strong> Há luz vermelha para ser refletida! A maçã continua parecendo <strong>vermelha</strong>.';
-            } else if(color === 'blue') {
-                stage.style.background = 'rgba(0, 102, 255, 0.2)';
+                desc.textContent = 'Luz Vermelha: A maçã reflete a luz incidente e se mantém vermelha.';
+            } else if(color === 'blue' || color === 'green') {
+                stage.style.background = color === 'blue' ? 'rgba(0, 102, 255, 0.2)' : 'rgba(0, 255, 102, 0.2)';
                 apple.style.backgroundColor = '#111111';
                 apple.style.filter = 'brightness(0.3)';
-                desc.innerHTML = '<strong>Luz Azul:</strong> A maçã absorve a luz azul e não tem luz vermelha para refletir. A maçã parece <strong>preta</strong>!';
-            } else if(color === 'green') {
-                stage.style.background = 'rgba(0, 255, 102, 0.2)';
-                apple.style.backgroundColor = '#111111';
-                apple.style.filter = 'brightness(0.3)';
-                desc.innerHTML = '<strong>Luz Verde:</strong> A maçã absorve a luz verde. Sem refletir nada, ela parece <strong>preta</strong>!';
+                desc.textContent = `Luz ${color === 'blue' ? 'Azul' : 'Verde'}: A maçã absorve a cor e parece preta.`;
             }
         }
 
-        // 4. SIMULADOR DO PRISMA DE NEWTON
+        // Simulador Prisma
         function setPrism(active, btn) {
             const beam = document.getElementById('prism-beam');
             const desc = document.getElementById('prism-desc');
@@ -568,14 +549,14 @@
 
             if(active) {
                 beam.classList.add('rainbow-beam');
-                desc.innerHTML = '<strong>Refração e Dispersão:</strong> O prisma desacelera cada cor em um ângulo diferente, separando a luz branca nas cores do arco-íris!';
+                desc.textContent = 'Refração/Dispersão: O prisma separa a luz branca no espectro visível!';
             } else {
                 beam.classList.remove('rainbow-beam');
-                desc.innerHTML = 'Luz branca viajando sem dispersão.';
+                desc.textContent = 'Luz branca viajando sem dispersão.';
             }
         }
 
-        // 5. SIMULADOR DE VISÃO
+        // Simulador Visão
         function setVision(corrected, btn) {
             const target = document.getElementById('eye-target');
             btn.parentElement.querySelectorAll('.btn-action').forEach(b => b.classList.remove('active'));
@@ -583,7 +564,7 @@
             target.className = corrected ? 'eye-vision vision-clear' : 'eye-vision vision-blurry';
         }
 
-        // 6. QUIZ LOGIC
+        // Lógica Quiz
         let totalCorrect = 0;
         const totalQuestions = document.querySelectorAll('.quiz-card').length;
 
