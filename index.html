@@ -40,51 +40,28 @@
 
         /* =========================================================
            VARIÁVEIS
-        ========================================================= */
+        ========================================================== */
 
         :root {
 
-            --bg:
-                #070b14;
+            --bg: #070b14;
+            --bg-secondary: #0c1220;
+            --card: rgba(17, 25, 40, 0.85);
+            --card-hover: rgba(24, 36, 57, 0.95);
+            --element: #172235;
 
-            --bg-secondary:
-                #0c1220;
+            --primary: #38bdf8;
+            --primary-dark: #0284c7;
+            --secondary: #8b5cf6;
 
-            --card:
-                rgba(17, 25, 40, 0.85);
+            --success: #22c55e;
+            --danger: #ef4444;
+            --warning: #f59e0b;
 
-            --card-hover:
-                rgba(24, 36, 57, 0.95);
+            --text: #f8fafc;
+            --muted: #94a3b8;
 
-            --element:
-                #172235;
-
-            --primary:
-                #38bdf8;
-
-            --primary-dark:
-                #0284c7;
-
-            --secondary:
-                #8b5cf6;
-
-            --success:
-                #22c55e;
-
-            --danger:
-                #ef4444;
-
-            --warning:
-                #f59e0b;
-
-            --text:
-                #f8fafc;
-
-            --muted:
-                #94a3b8;
-
-            --border:
-                rgba(148, 163, 184, 0.16);
+            --border: rgba(148, 163, 184, 0.16);
 
             --shadow:
                 0 20px 60px rgba(0, 0, 0, 0.35);
@@ -92,61 +69,36 @@
             --glow:
                 0 0 35px rgba(56, 189, 248, 0.12);
 
-            --radius:
-                18px;
+            --radius: 18px;
 
-            --transition:
-                all 0.25s ease;
+            --transition: all 0.25s ease;
         }
 
 
         /* =========================================================
            TEMA CLARO
-        ========================================================= */
+        ========================================================== */
 
         [data-theme="light"] {
 
-            --bg:
-                #eef5fb;
+            --bg: #eef5fb;
+            --bg-secondary: #e2edf7;
+            --card: rgba(255, 255, 255, 0.90);
+            --card-hover: #ffffff;
+            --element: #e7f0f8;
 
-            --bg-secondary:
-                #e2edf7;
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #7c3aed;
 
-            --card:
-                rgba(255, 255, 255, 0.90);
+            --success: #16a34a;
+            --danger: #dc2626;
+            --warning: #d97706;
 
-            --card-hover:
-                #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
 
-            --element:
-                #e7f0f8;
-
-            --primary:
-                #0284c7;
-
-            --primary-dark:
-                #0369a1;
-
-            --secondary:
-                #7c3aed;
-
-            --success:
-                #16a34a;
-
-            --danger:
-                #dc2626;
-
-            --warning:
-                #d97706;
-
-            --text:
-                #0f172a;
-
-            --muted:
-                #475569;
-
-            --border:
-                rgba(15, 23, 42, 0.10);
+            --border: rgba(15, 23, 42, 0.10);
 
             --shadow:
                 0 20px 60px rgba(15, 23, 42, 0.10);
@@ -158,25 +110,19 @@
 
         /* =========================================================
            RESET
-        ========================================================= */
+        ========================================================== */
 
         * {
 
-            margin:
-                0;
-
-            padding:
-                0;
-
-            box-sizing:
-                border-box;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
 
         html {
 
-            scroll-behavior:
-                smooth;
+            scroll-behavior: smooth;
         }
 
 
@@ -186,20 +132,15 @@
                 'Inter',
                 sans-serif;
 
-            background:
-                var(--bg);
+            background: var(--bg);
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            min-height:
-                100vh;
+            min-height: 100vh;
 
-            line-height:
-                1.6;
+            line-height: 1.6;
 
-            overflow-x:
-                hidden;
+            overflow-x: hidden;
 
             transition:
                 background .3s ease,
@@ -212,41 +153,31 @@
         textarea,
         select {
 
-            font-family:
-                inherit;
+            font-family: inherit;
         }
 
 
         button {
 
-            -webkit-tap-highlight-color:
-                transparent;
+            -webkit-tap-highlight-color: transparent;
         }
 
 
         /* =========================================================
            FUNDO DECORATIVO
-        ========================================================= */
+        ========================================================== */
 
         body::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                fixed;
+            position: fixed;
 
-            width:
-                500px;
+            width: 500px;
+            height: 500px;
 
-            height:
-                500px;
-
-            top:
-                -200px;
-
-            left:
-                -150px;
+            top: -200px;
+            left: -150px;
 
             background:
                 radial-gradient(
@@ -255,11 +186,9 @@
                     transparent 70%
                 );
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
-            z-index:
-                -1;
+            z-index: -1;
 
             animation:
                 floatGlow 8s ease-in-out infinite;
@@ -268,23 +197,15 @@
 
         body::after {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                fixed;
+            position: fixed;
 
-            width:
-                500px;
+            width: 500px;
+            height: 500px;
 
-            height:
-                500px;
-
-            right:
-                -200px;
-
-            bottom:
-                -200px;
+            right: -200px;
+            bottom: -200px;
 
             background:
                 radial-gradient(
@@ -293,11 +214,9 @@
                     transparent 70%
                 );
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
-            z-index:
-                -1;
+            z-index: -1;
 
             animation:
                 floatGlow 10s ease-in-out infinite reverse;
@@ -325,39 +244,30 @@
 
         /* =========================================================
            NAVBAR
-        ========================================================= */
+        ========================================================== */
 
         .navbar {
 
-            position:
-                sticky;
+            position: sticky;
 
-            top:
-                0;
+            top: 0;
 
-            z-index:
-                1000;
+            z-index: 1000;
 
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
 
-            align-items:
-                center;
+            align-items: center;
 
-            padding:
-                16px 5%;
+            padding: 16px 5%;
 
             background:
                 rgba(7, 11, 20, 0.78);
 
-            backdrop-filter:
-                blur(18px);
+            backdrop-filter: blur(18px);
 
-            -webkit-backdrop-filter:
-                blur(18px);
+            -webkit-backdrop-filter: blur(18px);
 
             border-bottom:
                 1px solid var(--border);
@@ -367,52 +277,39 @@
         [data-theme="light"] .navbar {
 
             background:
-                rgba(255,255,255,0.78);
+                rgba(255, 255, 255, 0.78);
         }
 
 
         .logo {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                12px;
+            gap: 12px;
 
             font-family:
                 'Space Grotesk',
                 sans-serif;
 
-            font-size:
-                1.25rem;
+            font-size: 1.25rem;
 
-            font-weight:
-                700;
+            font-weight: 700;
         }
 
 
         .logo-icon {
 
-            width:
-                42px;
+            width: 42px;
+            height: 42px;
 
-            height:
-                42px;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                12px;
+            border-radius: 12px;
 
             background:
                 linear-gradient(
@@ -423,10 +320,9 @@
 
             box-shadow:
                 0 0 25px
-                rgba(56,189,248,0.25);
+                rgba(56, 189, 248, 0.25);
 
-            font-size:
-                1.3rem;
+            font-size: 1.3rem;
 
             transition:
                 transform .3s ease;
@@ -443,69 +339,54 @@
 
         .logo-text span {
 
-            color:
-                var(--primary);
+            color: var(--primary);
         }
 
 
         .theme-button {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                7px;
+            gap: 7px;
 
-            background:
-                var(--element);
+            background: var(--element);
 
             border:
                 1px solid var(--border);
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            padding:
-                9px 15px;
+            padding: 9px 15px;
 
-            border-radius:
-                12px;
+            border-radius: 12px;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            font-weight:
-                600;
+            font-weight: 600;
 
-            transition:
-                var(--transition);
+            transition: var(--transition);
         }
 
 
         .theme-button:hover {
 
-            border-color:
-                var(--primary);
+            border-color: var(--primary);
 
-            transform:
-                translateY(-2px);
+            transform: translateY(-2px);
 
-            box-shadow:
-                var(--glow);
+            box-shadow: var(--glow);
         }
 
 
         /* =========================================================
            CONTAINER
-        ========================================================= */
+        ========================================================== */
 
         .container {
 
-            width:
-                min(1200px, 92%);
+            width: min(1200px, 92%);
 
             margin:
                 35px auto 80px;
@@ -514,130 +395,97 @@
 
         /* =========================================================
            HERO
-        ========================================================= */
+        ========================================================== */
 
         .hero {
 
-            position:
-                relative;
+            position: relative;
 
-            padding:
-                50px 45px;
+            padding: 50px 45px;
 
-            margin-bottom:
-                30px;
+            margin-bottom: 30px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                26px;
+            border-radius: 26px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(56,189,248,0.08),
-                    rgba(139,92,246,0.08)
+                    rgba(56, 189, 248, 0.08),
+                    rgba(139, 92, 246, 0.08)
                 );
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
         }
 
 
         .hero::before {
 
-            content:
-                "⚛";
+            content: "⚛";
 
-            position:
-                absolute;
+            position: absolute;
 
-            right:
-                45px;
+            right: 45px;
+            top: 20px;
 
-            top:
-                20px;
+            font-size: 150px;
 
-            font-size:
-                150px;
+            opacity: 0.035;
 
-            opacity:
-                0.035;
+            transform: rotate(15deg);
 
-            transform:
-                rotate(15deg);
-
-            pointer-events:
-                none;
+            pointer-events: none;
         }
 
 
         .hero::after {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            width:
-                200px;
+            width: 200px;
+            height: 200px;
 
-            height:
-                200px;
+            right: 180px;
+            bottom: -120px;
 
-            right:
-                180px;
-
-            bottom:
-                -120px;
-
-            border-radius:
-                50%;
+            border-radius: 50%;
 
             background:
-                rgba(56,189,248,.08);
+                rgba(56, 189, 248, .08);
 
-            filter:
-                blur(10px);
+            filter: blur(10px);
 
-            pointer-events:
-                none;
+            pointer-events: none;
         }
 
 
         .hero-badge {
 
-            display:
-                inline-flex;
+            display: inline-flex;
 
-            padding:
-                6px 12px;
+            padding: 6px 12px;
 
             border:
-                1px solid rgba(56,189,248,0.3);
+                1px solid rgba(56, 189, 248, 0.3);
 
-            border-radius:
-                30px;
+            border-radius: 30px;
 
-            color:
-                var(--primary);
+            color: var(--primary);
 
             background:
-                rgba(56,189,248,0.07);
+                rgba(56, 189, 248, 0.07);
 
-            font-size:
-                0.78rem;
+            font-size: 0.78rem;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            margin-bottom:
-                15px;
+            margin-bottom: 15px;
         }
 
 
@@ -650,11 +498,9 @@
             font-size:
                 clamp(2rem, 5vw, 3.4rem);
 
-            line-height:
-                1.1;
+            line-height: 1.1;
 
-            margin-bottom:
-                15px;
+            margin-bottom: 15px;
         }
 
 
@@ -667,136 +513,104 @@
                     var(--secondary)
                 );
 
-            -webkit-background-clip:
-                text;
+            -webkit-background-clip: text;
 
-            -webkit-text-fill-color:
-                transparent;
+            -webkit-text-fill-color: transparent;
         }
 
 
         .hero p {
 
-            max-width:
-                720px;
+            max-width: 720px;
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-size:
-                1rem;
+            font-size: 1rem;
 
-            margin:
-                0;
+            margin: 0;
         }
 
 
         /* =========================================================
            NAVEGAÇÃO
-        ========================================================= */
+        ========================================================== */
 
         .navigation-section {
 
-            margin-bottom:
-                22px;
+            margin-bottom: 22px;
         }
 
 
         .navigation-title {
 
-            font-size:
-                0.75rem;
+            font-size: 0.75rem;
 
-            text-transform:
-                uppercase;
+            text-transform: uppercase;
 
-            letter-spacing:
-                0.12em;
+            letter-spacing: 0.12em;
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            margin-bottom:
-                10px;
+            margin-bottom: 10px;
         }
 
 
         .tabs-nav {
 
-            display:
-                flex;
+            display: flex;
 
-            gap:
-                8px;
+            gap: 8px;
 
-            overflow-x:
-                auto;
+            overflow-x: auto;
 
-            padding:
-                5px 2px 12px;
+            padding: 5px 2px 12px;
 
-            scrollbar-width:
-                thin;
+            scrollbar-width: thin;
         }
 
 
         .tabs-nav::-webkit-scrollbar {
 
-            height:
-                4px;
+            height: 4px;
         }
 
 
         .tabs-nav::-webkit-scrollbar-thumb {
 
-            background:
-                var(--primary);
+            background: var(--primary);
 
-            border-radius:
-                20px;
+            border-radius: 20px;
         }
 
 
         .tab-button {
 
-            flex-shrink:
-                0;
+            flex-shrink: 0;
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                8px;
+            gap: 8px;
 
-            padding:
-                11px 16px;
+            padding: 11px 16px;
 
-            border-radius:
-                12px;
+            border-radius: 12px;
 
             border:
                 1px solid var(--border);
 
-            background:
-                var(--card);
+            background: var(--card);
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            font-weight:
-                600;
+            font-weight: 600;
 
-            font-size:
-                0.83rem;
+            font-size: 0.83rem;
 
             transition:
                 all 0.25s ease;
@@ -805,11 +619,10 @@
 
         .tab-button:hover {
 
-            color:
-                var(--text);
+            color: var(--text);
 
             border-color:
-                rgba(56,189,248,0.5);
+                rgba(56, 189, 248, 0.5);
 
             transform:
                 translateY(-2px);
@@ -818,11 +631,9 @@
 
         .tab-button.active {
 
-            color:
-                white;
+            color: white;
 
-            border-color:
-                transparent;
+            border-color: transparent;
 
             background:
                 linear-gradient(
@@ -833,63 +644,51 @@
 
             box-shadow:
                 0 8px 25px
-                rgba(56,189,248,0.18);
+                rgba(56, 189, 248, 0.18);
         }
 
 
         /* =========================================================
            PROGRESSO
-        ========================================================= */
+        ========================================================== */
 
         .progress-box {
 
-            margin-bottom:
-                22px;
+            margin-bottom: 22px;
         }
 
 
         .progress-info {
 
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-size:
-                0.78rem;
+            font-size: 0.78rem;
 
-            margin-bottom:
-                6px;
+            margin-bottom: 6px;
         }
 
 
         .progress {
 
-            height:
-                5px;
+            height: 5px;
 
-            background:
-                var(--element);
+            background: var(--element);
 
-            border-radius:
-                20px;
+            border-radius: 20px;
 
-            overflow:
-                hidden;
+            overflow: hidden;
         }
 
 
         .progress-fill {
 
-            width:
-                12.5%;
+            width: 12.5%;
 
-            height:
-                100%;
+            height: 100%;
 
             background:
                 linear-gradient(
@@ -898,8 +697,7 @@
                     var(--secondary)
                 );
 
-            border-radius:
-                20px;
+            border-radius: 20px;
 
             transition:
                 width 0.35s ease;
@@ -908,30 +706,24 @@
 
         /* =========================================================
            PAINÉIS
-        ========================================================= */
+        ========================================================== */
 
         .tab-panel {
 
-            display:
-                none;
+            display: none;
 
-            padding:
-                35px;
+            padding: 35px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                22px;
+            border-radius: 22px;
 
-            background:
-                var(--card);
+            background: var(--card);
 
-            box-shadow:
-                var(--shadow);
+            box-shadow: var(--shadow);
 
-            backdrop-filter:
-                blur(15px);
+            backdrop-filter: blur(15px);
 
             animation:
                 panelIn 0.35s ease;
@@ -940,8 +732,7 @@
 
         .tab-panel.active {
 
-            display:
-                block;
+            display: block;
         }
 
 
@@ -949,8 +740,7 @@
 
             from {
 
-                opacity:
-                    0;
+                opacity: 0;
 
                 transform:
                     translateY(12px);
@@ -958,8 +748,7 @@
 
             to {
 
-                opacity:
-                    1;
+                opacity: 1;
 
                 transform:
                     translateY(0);
@@ -973,42 +762,35 @@
                 'Space Grotesk',
                 sans-serif;
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            font-size:
-                1.8rem;
+            font-size: 1.8rem;
 
-            margin-bottom:
-                8px;
+            margin-bottom: 8px;
         }
 
 
         .section-title span {
 
-            color:
-                var(--primary);
+            color: var(--primary);
         }
 
 
         .section-description {
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            margin-bottom:
-                25px;
+            margin-bottom: 25px;
         }
 
 
         /* =========================================================
            CARDS
-        ========================================================= */
+        ========================================================== */
 
         .cards {
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(
@@ -1016,74 +798,58 @@
                     minmax(220px, 1fr)
                 );
 
-            gap:
-                16px;
+            gap: 16px;
 
-            margin:
-                22px 0;
+            margin: 22px 0;
         }
 
 
         .card {
 
-            position:
-                relative;
+            position: relative;
 
-            padding:
-                22px;
+            padding: 22px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                16px;
+            border-radius: 16px;
 
             background:
-                rgba(23,34,53,0.6);
+                rgba(23, 34, 53, 0.6);
 
             transition:
                 all 0.25s ease;
 
-            overflow:
-                hidden;
+            overflow: hidden;
         }
 
 
         [data-theme="light"] .card {
 
             background:
-                rgba(231,240,248,0.65);
+                rgba(231, 240, 248, 0.65);
         }
 
 
         .card::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            width:
-                100px;
+            width: 100px;
+            height: 100px;
 
-            height:
-                100px;
+            right: -55px;
+            top: -55px;
 
-            right:
-                -55px;
-
-            top:
-                -55px;
-
-            border-radius:
-                50%;
+            border-radius: 50%;
 
             background:
-                rgba(56,189,248,.08);
+                rgba(56, 189, 248, .08);
 
-            transition:
-                .3s;
+            transition: .3s;
         }
 
 
@@ -1093,7 +859,7 @@
                 translateY(-5px);
 
             border-color:
-                rgba(56,189,248,0.35);
+                rgba(56, 189, 248, 0.35);
 
             background:
                 var(--card-hover);
@@ -1112,35 +878,24 @@
 
         .card-icon {
 
-            width:
-                45px;
+            width: 45px;
+            height: 45px;
 
-            height:
-                45px;
+            display: flex;
 
-            display:
-                flex;
+            align-items: center;
+            justify-content: center;
 
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                12px;
+            border-radius: 12px;
 
             background:
-                rgba(56,189,248,0.1);
+                rgba(56, 189, 248, 0.1);
 
-            margin-bottom:
-                15px;
+            margin-bottom: 15px;
 
-            font-size:
-                1.3rem;
+            font-size: 1.3rem;
 
-            transition:
-                .3s;
+            transition: .3s;
         }
 
 
@@ -1151,129 +906,100 @@
                 rotate(3deg);
 
             background:
-                rgba(56,189,248,.16);
+                rgba(56, 189, 248, .16);
         }
 
 
         .card h3 {
 
-            font-size:
-                1rem;
+            font-size: 1rem;
 
-            margin-bottom:
-                7px;
+            margin-bottom: 7px;
         }
 
 
         .card p {
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-size:
-                0.88rem;
+            font-size: 0.88rem;
 
-            margin:
-                0;
+            margin: 0;
         }
 
 
         /* =========================================================
            ÁREA INTERATIVA
-        ========================================================= */
+        ========================================================== */
 
         .interactive {
 
-            margin-top:
-                25px;
+            margin-top: 25px;
 
-            padding:
-                22px;
+            padding: 22px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                17px;
+            border-radius: 17px;
 
             background:
                 var(--bg-secondary);
 
-            position:
-                relative;
+            position: relative;
 
-            overflow:
-                hidden;
+            overflow: hidden;
         }
 
 
         .interactive::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            width:
-                160px;
+            width: 160px;
+            height: 160px;
 
-            height:
-                160px;
+            right: -80px;
+            top: -80px;
 
-            right:
-                -80px;
-
-            top:
-                -80px;
-
-            border-radius:
-                50%;
+            border-radius: 50%;
 
             background:
-                rgba(56,189,248,.06);
+                rgba(56, 189, 248, .06);
 
-            pointer-events:
-                none;
+            pointer-events: none;
         }
 
 
         .interactive-header {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                10px;
+            gap: 10px;
 
-            margin-bottom:
-                16px;
+            margin-bottom: 16px;
         }
 
 
         .interactive-header h3 {
 
-            font-size:
-                1rem;
+            font-size: 1rem;
         }
 
 
         .controls {
 
-            display:
-                flex;
+            display: flex;
 
-            flex-wrap:
-                wrap;
+            flex-wrap: wrap;
 
-            gap:
-                8px;
+            gap: 8px;
 
-            margin-bottom:
-                18px;
+            margin-bottom: 18px;
         }
 
 
@@ -1285,33 +1011,25 @@
             background:
                 var(--element);
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            padding:
-                9px 13px;
+            padding: 9px 13px;
 
-            border-radius:
-                9px;
+            border-radius: 9px;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            font-size:
-                0.82rem;
+            font-size: 0.82rem;
 
-            font-weight:
-                600;
+            font-weight: 600;
 
-            transition:
-                0.2s;
+            transition: .2s;
         }
 
 
         .control-button:hover {
 
-            color:
-                var(--text);
+            color: var(--text);
 
             border-color:
                 var(--primary);
@@ -1323,8 +1041,7 @@
 
         .control-button.active {
 
-            color:
-                white;
+            color: white;
 
             background:
                 var(--primary-dark);
@@ -1336,69 +1053,57 @@
 
         /* =========================================================
            SIMULADOR
-        ========================================================= */
+        ========================================================== */
 
         .stage {
 
-            height:
-                190px;
+            height: 190px;
 
             border:
                 1px dashed var(--border);
 
-            border-radius:
-                13px;
+            border-radius: 13px;
 
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(56,189,248,0.05),
+                    rgba(56, 189, 248, 0.05),
                     transparent 60%
                 );
 
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                center;
+            justify-content: center;
 
-            align-items:
-                center;
+            align-items: center;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
-            position:
-                relative;
+            position: relative;
         }
 
 
         .rocket {
 
-            font-size:
-                4rem;
+            font-size: 4rem;
 
-            transition:
-                0.4s;
+            transition: .4s;
 
             filter:
                 drop-shadow(
                     0 0 12px
-                    rgba(56,189,248,.2)
+                    rgba(56, 189, 248, .2)
                 );
         }
 
 
         .mirror-line {
 
-            height:
-                120px;
+            height: 120px;
 
-            width:
-                8px;
+            width: 8px;
 
-            border-radius:
-                10px;
+            border-radius: 10px;
 
             background:
                 linear-gradient(
@@ -1409,53 +1114,45 @@
                 );
 
             box-shadow:
-                0 0 15px rgba(255,255,255,0.1);
+                0 0 15px
+                rgba(255, 255, 255, 0.1);
         }
 
 
         .mirror-scene {
 
-            display:
-                flex;
+            display: flex;
 
-            align-items:
-                center;
+            align-items: center;
 
-            gap:
-                60px;
+            gap: 60px;
         }
 
 
         /* =========================================================
            CORES
-        ========================================================= */
+        ========================================================== */
 
         .color-stage {
 
-            position:
-                relative;
+            position: relative;
         }
 
 
         .color-ball {
 
-            width:
-                85px;
+            width: 85px;
+            height: 85px;
 
-            height:
-                85px;
+            border-radius: 50%;
 
-            border-radius:
-                50%;
-
-            background:
-                #ef4444;
+            background: #ef4444;
 
             box-shadow:
-                0 0 40px rgba(239,68,68,0.4);
+                0 0 40px
+                rgba(239, 68, 68, 0.4);
 
-            transition:
-                0.35s;
+            transition: .35s;
 
             animation:
                 colorPulse 3s ease-in-out infinite;
@@ -1481,44 +1178,38 @@
 
         /* =========================================================
            FÓRMULA
-        ========================================================= */
+        ========================================================== */
 
         .formula {
 
-            padding:
-                18px;
+            padding: 18px;
 
-            margin:
-                20px 0;
+            margin: 20px 0;
 
-            text-align:
-                center;
+            text-align: center;
 
-            border-radius:
-                13px;
+            border-radius: 13px;
 
             border:
-                1px solid rgba(56,189,248,0.18);
+                1px solid
+                rgba(56, 189, 248, 0.18);
 
             background:
-                rgba(56,189,248,0.05);
+                rgba(56, 189, 248, 0.05);
 
-            color:
-                var(--primary);
+            color: var(--primary);
 
-            font-weight:
-                700;
+            font-weight: 700;
         }
 
 
         /* =========================================================
-           VÍDEOS LOCAIS
-        ========================================================= */
+           VÍDEOS
+        ========================================================== */
 
         .videos-grid {
 
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(
@@ -1526,37 +1217,33 @@
                     minmax(0, 1fr)
                 );
 
-            gap:
-                22px;
+            gap: 22px;
 
-            margin-top:
-                28px;
+            margin-top: 28px;
         }
 
 
         .video-card {
 
-            position:
-                relative;
+            position: relative;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                20px;
+            border-radius: 20px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(23,34,53,.85),
-                    rgba(12,18,32,.95)
+                    rgba(23, 34, 53, .85),
+                    rgba(12, 18, 32, .95)
                 );
 
             box-shadow:
-                0 15px 40px rgba(0,0,0,.20);
+                0 15px 40px
+                rgba(0, 0, 0, .20);
 
             transition:
                 transform .3s ease,
@@ -1578,36 +1265,26 @@
 
         .video-card::before {
 
-            content:
-                "";
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            width:
-                180px;
+            width: 180px;
+            height: 180px;
 
-            height:
-                180px;
-
-            top:
-                -100px;
-
-            right:
-                -80px;
+            top: -100px;
+            right: -80px;
 
             background:
                 radial-gradient(
                     circle,
-                    rgba(56,189,248,.18),
+                    rgba(56, 189, 248, .18),
                     transparent 70%
                 );
 
-            pointer-events:
-                none;
+            pointer-events: none;
 
-            transition:
-                .3s;
+            transition: .3s;
         }
 
 
@@ -1617,11 +1294,11 @@
                 translateY(-8px);
 
             border-color:
-                rgba(56,189,248,.55);
+                rgba(56, 189, 248, .55);
 
             box-shadow:
                 0 20px 50px
-                rgba(56,189,248,.13);
+                rgba(56, 189, 248, .13);
         }
 
 
@@ -1632,70 +1309,109 @@
         }
 
 
+        /* =========================================================
+           CONTAINER DO VÍDEO
+        ========================================================== */
+
         .video-container {
 
-            position:
-                relative;
+            position: relative;
 
-            width:
-                100%;
+            width: 100%;
 
-            aspect-ratio:
-                16 / 9;
+            aspect-ratio: 16 / 9;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
-            background:
-                #020617;
+            background: #000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
         }
 
 
+        /* =========================================================
+           VÍDEO CORRIGIDO
+        ========================================================== */
+
         .video-container video {
 
-            display:
-                block;
+            display: block;
 
-            width:
-                100%;
+            width: 100%;
 
-            height:
-                100%;
+            height: 100%;
 
-            object-fit:
-                cover;
+            /*
+                contain mantém a proporção original
+                e evita cortar o vídeo.
+            */
 
-            background:
-                #020617;
+            object-fit: contain;
+
+            background: #000;
+
+            /*
+                Evita filtros ou efeitos que possam
+                degradar a imagem.
+            */
+
+            image-rendering: auto;
+        }
+
+
+        /*
+            Quando o navegador coloca o vídeo em
+            tela cheia, deixamos ele ocupar toda
+            a área disponível sem deformar.
+        */
+
+        video:fullscreen {
+
+            width: 100vw;
+
+            height: 100vh;
+
+            object-fit: contain;
+
+            background: #000;
+        }
+
+
+        video:-webkit-full-screen {
+
+            width: 100vw;
+
+            height: 100vh;
+
+            object-fit: contain;
+
+            background: #000;
         }
 
 
         .video-info {
 
-            padding:
-                20px;
+            padding: 20px;
         }
 
 
         .video-number {
 
-            display:
-                inline-block;
+            display: inline-block;
 
-            color:
-                var(--primary);
+            color: var(--primary);
 
-            font-size:
-                .68rem;
+            font-size: .68rem;
 
-            font-weight:
-                800;
+            font-weight: 800;
 
-            letter-spacing:
-                .14em;
+            letter-spacing: .14em;
 
-            margin-bottom:
-                5px;
+            margin-bottom: 5px;
         }
 
 
@@ -1705,142 +1421,110 @@
                 'Space Grotesk',
                 sans-serif;
 
-            font-size:
-                1.12rem;
+            font-size: 1.12rem;
 
-            margin:
-                2px 0 7px;
+            margin: 2px 0 7px;
         }
 
 
         .video-info p {
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-size:
-                .82rem;
+            font-size: .82rem;
 
-            line-height:
-                1.55;
+            line-height: 1.55;
 
-            margin:
-                0;
+            margin: 0;
         }
 
 
         /* =========================================================
            INFORMAÇÃO DOS VÍDEOS
-        ========================================================= */
+        ========================================================== */
 
         .video-tip {
 
-            margin-top:
-                22px;
+            margin-top: 22px;
 
-            padding:
-                17px 18px;
+            padding: 17px 18px;
 
             border:
-                1px solid rgba(56,189,248,.2);
+                1px solid
+                rgba(56, 189, 248, .2);
 
-            border-radius:
-                14px;
+            border-radius: 14px;
 
             background:
-                rgba(56,189,248,.05);
+                rgba(56, 189, 248, .05);
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-size:
-                .82rem;
+            font-size: .82rem;
         }
 
 
         .video-tip strong {
 
-            color:
-                var(--primary);
+            color: var(--primary);
         }
 
 
         .video-tip code {
 
-            padding:
-                3px 7px;
+            padding: 3px 7px;
 
-            border-radius:
-                6px;
+            border-radius: 6px;
 
-            background:
-                var(--element);
+            background: var(--element);
 
-            color:
-                var(--primary);
+            color: var(--primary);
 
-            font-family:
-                monospace;
+            font-family: monospace;
 
-            font-size:
-                .8rem;
+            font-size: .8rem;
         }
 
 
         /* =========================================================
            FIBRA ÓPTICA
-        ========================================================= */
+        ========================================================== */
 
         .fiber-container {
 
-            width:
-                85%;
+            width: 85%;
 
-            height:
-                45px;
+            height: 45px;
 
-            border-radius:
-                30px;
+            border-radius: 30px;
 
-            border:
-                5px solid #64748b;
+            border: 5px solid #64748b;
 
-            background:
-                #172235;
+            background: #172235;
 
-            overflow:
-                hidden;
+            overflow: hidden;
 
-            position:
-                relative;
+            position: relative;
 
             box-shadow:
-                inset 0 0 15px rgba(0,0,0,.3);
+                inset 0 0 15px
+                rgba(0, 0, 0, .3);
         }
 
 
         .fiber-light {
 
-            position:
-                absolute;
+            position: absolute;
 
-            left:
-                -30px;
+            left: -30px;
+            top: 7px;
 
-            top:
-                7px;
+            width: 20px;
+            height: 20px;
 
-            width:
-                20px;
+            border-radius: 50%;
 
-            height:
-                20px;
-
-            border-radius:
-                50%;
-
-            background:
-                #38bdf8;
+            background: #38bdf8;
 
             box-shadow:
                 0 0 25px #38bdf8;
@@ -1868,109 +1552,88 @@
 
         /* =========================================================
            QUIZ
-        ========================================================= */
+        ========================================================== */
 
         .question {
 
-            padding:
-                20px;
+            padding: 20px;
 
-            margin-bottom:
-                15px;
+            margin-bottom: 15px;
 
             border:
                 1px solid var(--border);
 
-            border-radius:
-                15px;
+            border-radius: 15px;
 
             background:
                 var(--bg-secondary);
 
-            transition:
-                .25s;
+            transition: .25s;
         }
 
 
         .question:hover {
 
             border-color:
-                rgba(56,189,248,.3);
+                rgba(56, 189, 248, .3);
         }
 
 
         .question-title {
 
-            color:
-                var(--text);
+            color: var(--text);
 
-            margin-bottom:
-                12px;
+            margin-bottom: 12px;
         }
 
 
         .quiz-option {
 
-            display:
-                block;
+            display: block;
 
-            width:
-                100%;
+            width: 100%;
 
-            text-align:
-                left;
+            text-align: left;
 
-            margin-top:
-                7px;
+            margin-top: 7px;
         }
 
 
         .quiz-option:disabled {
 
-            cursor:
-                default;
+            cursor: default;
 
-            opacity:
-                .95;
+            opacity: .95;
         }
 
 
         .feedback {
 
-            display:
-                none;
+            display: none;
 
-            margin-top:
-                12px;
+            margin-top: 12px;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            font-size:
-                0.85rem;
+            font-size: 0.85rem;
         }
 
 
         /* =========================================================
            BOTÕES DE NAVEGAÇÃO
-        ========================================================= */
+        ========================================================== */
 
         .footer-nav {
 
-            display:
-                flex;
+            display: flex;
 
-            justify-content:
-                space-between;
+            justify-content: space-between;
 
-            gap:
-                10px;
+            gap: 10px;
 
-            margin-top:
-                30px;
+            margin-top: 30px;
 
-            padding-top:
-                20px;
+            padding-top: 20px;
 
             border-top:
                 1px solid var(--border);
@@ -1979,14 +1642,11 @@
 
         .nav-button {
 
-            border:
-                none;
+            border: none;
 
-            padding:
-                11px 17px;
+            padding: 11px 17px;
 
-            border-radius:
-                10px;
+            border-radius: 10px;
 
             background:
                 linear-gradient(
@@ -1995,17 +1655,13 @@
                     var(--secondary)
                 );
 
-            color:
-                white;
+            color: white;
 
-            font-weight:
-                700;
+            font-weight: 700;
 
-            cursor:
-                pointer;
+            cursor: pointer;
 
-            transition:
-                0.25s;
+            transition: .25s;
         }
 
 
@@ -2016,47 +1672,45 @@
 
             box-shadow:
                 0 8px 20px
-                rgba(56,189,248,0.2);
+                rgba(56, 189, 248, 0.2);
         }
 
 
         /* =========================================================
            FOOTER
-        ========================================================= */
+        ========================================================== */
 
         footer {
 
-            text-align:
-                center;
+            text-align: center;
 
-            color:
-                var(--muted);
+            color: var(--muted);
 
-            font-size:
-                0.8rem;
+            font-size: 0.8rem;
 
-            padding:
-                25px 0;
+            padding: 25px 0;
         }
 
 
         footer strong {
 
-            color:
-                var(--primary);
+            color: var(--primary);
         }
 
 
         /* =========================================================
            RESPONSIVIDADE
-        ========================================================= */
+        ========================================================== */
 
         @media (max-width: 1000px) {
 
             .videos-grid {
 
                 grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
             }
         }
 
@@ -2072,18 +1726,15 @@
 
             .logo-text {
 
-                display:
-                    none;
+                display: none;
             }
 
 
             .container {
 
-                width:
-                    94%;
+                width: 94%;
 
-                margin-top:
-                    20px;
+                margin-top: 20px;
             }
 
 
@@ -2096,8 +1747,7 @@
 
             .hero::before {
 
-                display:
-                    none;
+                display: none;
             }
 
 
@@ -2110,43 +1760,37 @@
 
             .section-title {
 
-                font-size:
-                    1.45rem;
+                font-size: 1.45rem;
             }
 
 
             .footer-nav {
 
-                flex-direction:
-                    column;
+                flex-direction: column;
             }
 
 
             .nav-button {
 
-                width:
-                    100%;
+                width: 100%;
             }
 
 
             .videos-grid {
 
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
 
             .mirror-scene {
 
-                gap:
-                    30px;
+                gap: 30px;
             }
 
 
             .rocket {
 
-                font-size:
-                    3rem;
+                font-size: 3rem;
             }
         }
 
@@ -2155,8 +1799,7 @@
 
             .theme-button span {
 
-                display:
-                    none;
+                display: none;
             }
 
 
@@ -2169,22 +1812,19 @@
 
             .hero h1 {
 
-                font-size:
-                    2rem;
+                font-size: 2rem;
             }
 
 
             .controls {
 
-                flex-direction:
-                    column;
+                flex-direction: column;
             }
 
 
             .control-button {
 
-                width:
-                    100%;
+                width: 100%;
             }
         }
 
@@ -2198,7 +1838,7 @@
 
     <!-- =========================================================
          NAVBAR
-    ========================================================= -->
+    ========================================================== -->
 
     <header class="navbar">
 
@@ -2234,7 +1874,7 @@
 
     <!-- =========================================================
          CONTEÚDO
-    ========================================================= -->
+    ========================================================== -->
 
     <main class="container">
 
@@ -3354,8 +2994,8 @@
 
         <!-- =====================================================
              ABA 6 — VÍDEOS
-             SOMENTE 3 VÍDEOS LOCAIS
-        ===================================================== -->
+             SOMENTE OS 3 VÍDEOS
+        ========================================================== -->
 
         <section
             class="tab-panel"
@@ -3388,22 +3028,15 @@
 
                     <div class="video-container">
 
-                        <!--
-                            COLOQUE O SEU PRIMEIRO VÍDEO EM:
-
-                            videos/optica.mp4
-
-                            Se o nome do arquivo for diferente,
-                            altere o valor do src.
-                        -->
-
                         <video
                             controls
                             preload="metadata"
-                            playsinline>
+                            playsinline
+                            width="1920"
+                            height="1080">
 
                             <source
-                                src="videos/optica.mp4"
+                                src="WhatsApp Video 2026-09-01 at 09.36.33.mp4"
                                 type="video/mp4"
                             >
 
@@ -3444,16 +3077,12 @@
 
                     <div class="video-container">
 
-                        <!--
-                            COLOQUE O SEU SEGUNDO VÍDEO EM:
-
-                            videos/espelhos.mp4
-                        -->
-
                         <video
                             controls
                             preload="metadata"
-                            playsinline>
+                            playsinline
+                            width="1920"
+                            height="1080">
 
                             <source
                                 src="WhatsApp Video 2026-09-01 at 09.36.45.mp4"
@@ -3497,16 +3126,12 @@
 
                     <div class="video-container">
 
-                        <!--
-                            COLOQUE O SEU TERCEIRO VÍDEO EM:
-
-                            videos/cores.mp4
-                        -->
-
                         <video
                             controls
                             preload="metadata"
-                            playsinline>
+                            playsinline
+                            width="1920"
+                            height="1080">
 
                             <source
                                 src="WhatsApp Video 2026-09-01 at 09.36.34.mp4"
@@ -3544,27 +3169,16 @@
 
 
             <!-- =================================================
-                 INSTRUÇÕES DOS VÍDEOS
+                 AVISO — SEM PLAYERS EXTRAS
             ================================================== -->
 
             <div class="video-tip">
 
                 💡 <strong>Como colocar seus vídeos:</strong>
 
-               <!-- VÍDEO 1 -->
-<video controls>
-    <source src="videos/COLOQUE-AQUI-O-NOME-DO-VIDEO-1.mp4" type="video/mp4">
-</video>
-
-<!-- VÍDEO 2 -->
-<video controls>
-    <source src="videos/COLOQUE-AQUI-O-NOME-DO-VIDEO-2.mp4" type="video/mp4">
-</video>
-
-<!-- VÍDEO 3 -->
-<video controls>
-    <source src="videos/COLOQUE-AQUI-O-NOME-DO-VIDEO-3.mp4" type="video/mp4">
-</video>
+                coloque os arquivos MP4 dentro da pasta
+                <code>videos</code> e altere o nome no atributo
+                <code>src</code> dos vídeos acima.
 
             </div>
 
@@ -3620,9 +3234,7 @@
             </p>
 
 
-            <!-- =================================================
-                 QUESTÃO 1
-            ================================================== -->
+            <!-- QUESTÃO 1 -->
 
             <div
                 class="question"
@@ -3673,9 +3285,7 @@
 
 
 
-            <!-- =================================================
-                 QUESTÃO 2
-            ================================================== -->
+            <!-- QUESTÃO 2 -->
 
             <div
                 class="question"
@@ -3727,9 +3337,7 @@
 
 
 
-            <!-- =================================================
-                 QUESTÃO 3
-            ================================================== -->
+            <!-- QUESTÃO 3 -->
 
             <div
                 class="question"
@@ -3781,9 +3389,7 @@
 
 
 
-            <!-- =================================================
-                 QUESTÃO 4
-            ================================================== -->
+            <!-- QUESTÃO 4 -->
 
             <div
                 class="question"
@@ -3865,7 +3471,7 @@
 
     <!-- =========================================================
          FOOTER
-    ========================================================= -->
+    ========================================================== -->
 
     <footer>
 
@@ -3879,13 +3485,13 @@
 
     <!-- =========================================================
          JAVASCRIPT
-    ========================================================= -->
+    ========================================================== -->
 
     <script>
 
         /* =========================================================
            SISTEMA DE ABAS
-        ========================================================= */
+        ========================================================== */
 
         const tabButtons =
             document.querySelectorAll(
@@ -3952,11 +3558,9 @@
 
             window.scrollTo({
 
-                top:
-                    0,
+                top: 0,
 
-                behavior:
-                    'smooth'
+                behavior: 'smooth'
 
             });
 
@@ -3965,7 +3569,7 @@
 
         /* =========================================================
            CLIQUE NAS ABAS
-        ========================================================= */
+        ========================================================== */
 
         document
             .getElementById('tabs-nav')
@@ -3992,7 +3596,7 @@
 
         /* =========================================================
            PROGRESSO
-        ========================================================= */
+        ========================================================== */
 
         const labels = {
 
@@ -4060,7 +3664,7 @@
 
         /* =========================================================
            MODO CLARO / ESCURO
-        ========================================================= */
+        ========================================================== */
 
         const themeButton =
             document.getElementById(
@@ -4114,7 +3718,7 @@
 
         /* =========================================================
            SIMULADOR DE ESPELHOS
-        ========================================================= */
+        ========================================================== */
 
         const mirrorControls =
             document.getElementById(
@@ -4232,7 +3836,7 @@
 
         /* =========================================================
            SIMULADOR DE CORES
-        ========================================================= */
+        ========================================================== */
 
         const colorControls =
             document.getElementById(
@@ -4342,7 +3946,7 @@
 
         /* =========================================================
            QUIZ
-        ========================================================= */
+        ========================================================== */
 
         document
             .querySelectorAll(
@@ -4462,7 +4066,7 @@
 
         /* =========================================================
            CONTROLE DOS VÍDEOS
-        ========================================================= */
+        ========================================================== */
 
         const localVideos =
             document.querySelectorAll(
@@ -4499,7 +4103,7 @@
 
         /* =========================================================
            INICIALIZAÇÃO
-        ========================================================= */
+        ========================================================== */
 
         updateProgress(
             'tab-0'
